@@ -14,7 +14,7 @@
   "dependencies": {
     "@babel/preset-env": "^7.26.9",
     "babel-plugin-inferno": "^6.8.3",
-    "bulma-stylus": "0.8.0",
+    "bulma-stylus": "0.9.1",
     "deepmerge": "^4.3.1",
     "hexo": "^7.3.0",
     "hexo-component-inferno": "^3.1.2",
