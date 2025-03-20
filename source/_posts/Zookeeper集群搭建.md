@@ -1,6 +1,6 @@
 ---
 title: Zookeeper集群搭建
-date: 2025-03-20 15:56:50
+date: 2023-10-10 08:08:00
 tags: [环境搭建,Linux,Zookeeper]
 categories: [环境搭建]
 ---

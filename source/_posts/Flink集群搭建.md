@@ -1,6 +1,6 @@
 ---
 title: Flink集群搭建
-date: 2025-03-18 14:19:48
+date: 2023-10-12 16:40:00
 tags: [环境搭建,Linux,Flink]
 categories: [环境搭建]
 ---

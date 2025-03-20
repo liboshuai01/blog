@@ -266,6 +266,7 @@ widgets:
         # Names and URLs of the sites
         links:
             Github: https://github.com/liboshuai01
+            Gitee: https://gitee.com/liboshuai01
             掘金: https://juejin.cn/user/1878395516357111
     # Categories widget configurations
     -

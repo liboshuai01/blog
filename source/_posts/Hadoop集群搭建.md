@@ -1,6 +1,6 @@
 ---
 title: Hadoop集群搭建
-date: 2025-03-18 14:19:58
+date: 2023-10-10 15:30:00
 tags: [环境搭建,Linux,Hadoop]
 categories: [环境搭建]
 ---
