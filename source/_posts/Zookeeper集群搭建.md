@@ -1,7 +1,8 @@
 ---
 title: Zookeeper集群搭建
 date: 2025-03-20 15:56:50
-tags: [环境搭建]
+tags: [环境搭建,Linux,Zookeeper]
+categories: [环境搭建]
 ---
 
 本文简要介绍了如何在三台 CentOS 7 服务器上快速部署 Zookeeper 集群。主要流程包括：
