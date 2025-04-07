@@ -3,6 +3,7 @@ title: Flink集群搭建
 date: 2023-10-12 16:40:00
 tags: [环境搭建,Linux,Flink]
 categories: [环境搭建]
+cover: https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250407192319146.png
 ---
 
 本文详细介绍了如何在三台 Centos7 服务器上搭建 Apache Flink 集群的完整步骤。内容涵盖了环境准备、必要依赖（如 JDK、Hadoop 集群、HADOOP_CLASSPATH 配置等）的安装和配置、Flink 配置文件的修改、集群文件分发、集群启动与验证过程，以及如何关闭集群。通过本教程，读者能快速搭建一个高效的 Flink 集群环境，为实时计算和大数据处理提供坚实基础。
