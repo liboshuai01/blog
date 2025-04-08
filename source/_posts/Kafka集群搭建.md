@@ -3,6 +3,7 @@ title: Kafka集群搭建
 date: 2023-10-10 10:34:00
 tags: [环境搭建,Linux,Kafka]
 categories: [环境搭建]
+cover: https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250408113627328.png
 ---
 
 本博文简要介绍了如何在三台 CentOS 7 服务器上部署 Kafka 集群。文章涵盖了环境准备（关闭防火墙、SELinux，配置免密登录与时间同步、安装 JDK8 等），下载与安装 Kafka，配置 server.properties（包括 broker.id、listeners、log.dirs、zookeeper.connect 等关键参数）以及创建消息存储目录。最后，通过 xsync 分发安装目录并编写批量操作脚本来实现集群启动、停止和状态检查，并提供了验证步骤，确保 Kafka 节点正常运行。

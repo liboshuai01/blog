@@ -3,7 +3,7 @@ title: Hadoop集群搭建
 date: 2023-10-10 15:30:00
 tags: [环境搭建,Linux,Hadoop]
 categories: [环境搭建]
-cover: https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250408113209828.jpg
+cover: https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250408113518754.png
 ---
 
 本文详细讲解了如何在三台 Centos7 服务器上搭建 Hadoop 集群。文章从环境配置、依赖安装、各节点角色分配，到 HDFS、YARN 及 HistoryServer 的详细配置、启动与验证全流程进行了剖析，并附上了常见问题的解决方案。通过该教程，读者可以快速部署适用于大数据处理的高效 Hadoop 集群。
