@@ -103,5 +103,5 @@ theme: icarus
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: 'git'
-  repo: ssh://root@106.14.19.58:22222/root/document/hexo.git
+  repo: ssh://root@liboshuai.icu:22222/root/document/hexo.git
   branch: master
