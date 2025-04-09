@@ -109,7 +109,7 @@ navbar:
         归档: /archives
         分类: /categories
         标签: /tags
-        关于: /about
+#        关于: /about
     # Links to be shown on the right of the navigation bar
     links:
         Download on GitHub:
