@@ -1,6 +1,6 @@
 ---
 title: Doris集群搭建
-date: 2025-04-09 14:57:00
+date: 2023-10-12 23:11:00
 tags: [环境搭建,Linux,Doris]
 categories: [环境搭建]
 cover: https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250409145732836.png
