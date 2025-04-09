@@ -214,6 +214,8 @@ git config --global user.name "BoShuai Li"
     hexo init blog && cd blog
     # 安装Hexo项目依赖
     yarn install
+    # 安装deploy命令支持
+    yarn add hexo-deployer-git
     # 启动Hexo本地服务
     hexo s
     ```
