@@ -260,14 +260,14 @@ git config --global user.name "BoShuai Li"
      branch: master
    ```
    
-5. 配置本地SSH免密登录服务器
+5. 配置本地SSH免密登录服务器（使用git bash）
 
    ```shell
    # 生成密钥，随后一路回车
    ssh-keygen -t rsa
    # 这一步的目的是将本地生产的`id_rsa.pub`文件的内容拷贝到服务器上的`~/.ssh/authorized_keys`文件中
    # 当然也可以自己手动将生成的`id_rsa.pub`文件内容拷贝到服务器上的`~/.ssh/authorized_keys`文件中
-   ssh -p 22222 root@106.14.19.58 "cat >> ~/.ssh/authorized_keys" < C:\Users\libos\.ssh\id_rsa.pub
+   ssh -p 22222 root@106.14.19.58 "cat >> ~/.ssh/authorized_keys" < C:/Users/libos/.ssh/id_rsa.pub
    ```
    
    > 现在需要测试一下本地是否可以免密登录到服务器了
