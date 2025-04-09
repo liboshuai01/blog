@@ -792,15 +792,15 @@ providers:
 hexo init
 
 # 清除缓存 网页正常情况下可以忽略此条命令（简写 hexo c）
-hexo clean == 
+hexo clean
 
-# #新建文章
+# 新建文章
 hexo new "postName" 
 
-#新建页面
+# 新建页面
 hexo new page "pageName" 
 
-# #生成静态页面至public目录 简写：hexo g
+# 生成静态页面至public目录 简写：hexo g
 hexo generate 
 
 # 开启预览访问端口（默认端口4000，'ctrl + c'关闭server） 简写：hexo s，可用--debug
