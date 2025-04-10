@@ -4,6 +4,7 @@ date: 2023-10-10 08:08:00
 tags: [环境搭建,Linux,Zookeeper]
 categories: [环境搭建]
 cover: https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250408113556002.png
+toc: true
 ---
 
 在分布式系统领域，Zookeeper 是一种流行的分布式协调服务，具备高可用性和可靠性，广泛应用于分布式系统的配置管理、名称服务以及分布式锁控制等场景。然而，为了更好地支持分布式环境，Zookeeper 集群的搭建至关重要。通过集群模式，系统可以实现更高的容错性，同时提供更稳定的服务。

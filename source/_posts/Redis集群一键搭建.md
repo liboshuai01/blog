@@ -4,6 +4,7 @@ date: 2023-10-10 11:54:00
 tags: [环境搭建,Linux,Redis]
 categories: [环境搭建]
 cover: https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250408113442272.png
+toc: true
 ---
 
 在现代互联网应用中，高并发和大数据量的处理需求日益增加，单实例Redis已无法满足性能与稳定性的要求。为了解决这一瓶颈，Redis集群成为一种广泛采用的解决方案。通过构建集群，可以在多台服务器之间分布数据并实现主从复制，从而提升系统的扩展性以及数据的持久可用性。

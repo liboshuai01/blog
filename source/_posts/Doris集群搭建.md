@@ -4,6 +4,7 @@ date: 2023-10-12 23:11:00
 tags: [环境搭建,Linux,Doris]
 categories: [环境搭建]
 cover: https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250409145732836.png
+toc: true
 ---
 
 本文系统介绍了基于 CentOS 7 的 Apache Doris 集群搭建过程，涵盖从环境准备到集群管理的关键步骤。文中首先列出了操作系统的配置要求，包括关闭防火墙、调整内核参数、配置时钟同步及免密登录等，确保系统能够满足 Doris 的性能需求，同时附上相关配置链接供详细查阅。

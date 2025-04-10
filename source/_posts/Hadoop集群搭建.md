@@ -4,6 +4,7 @@ date: 2023-10-10 15:30:00
 tags: [环境搭建,Linux,Hadoop]
 categories: [环境搭建]
 cover: https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250408113518754.png
+toc: true
 ---
 
 这篇文章详细记录了如何在三台CentOS7服务器上搭建一个稳定运行的Hadoop集群。
