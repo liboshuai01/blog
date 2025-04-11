@@ -74,6 +74,20 @@ K3s 是一个由 Rancher Labs 推出的轻量级 Kubernetes 发行版，专为�
     node1    Ready    <none>                 45m   v1.32.3+k3s1
     node2    Ready    <none>                 46m   v1.32.3+k3s1
     ```
+   
+6. 给`node1`、`node2`节点设置worker角色标签（可选）
+
+   ```shell
+   [root@master ~]# kubectl label nodes node1 node-role.kubernetes.io/worker=true
+   node/node1 labeled
+   [root@master ~]# kubectl label nodes node2 node-role.kubernetes.io/worker=true
+   node/node2 labeled
+   [root@master ~]# kubectl get no
+   NAME     STATUS   ROLES                  AGE    VERSION
+   master   Ready    control-plane,master   109m   v1.32.3+k3s1
+   node1    Ready    worker                 102m   v1.32.3+k3s1
+   node2    Ready    worker 
+   ```
 
 结语
 ---
