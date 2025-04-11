@@ -86,7 +86,7 @@ K3s 是一个由 Rancher Labs 推出的轻量级 Kubernetes 发行版，专为�
    NAME     STATUS   ROLES                  AGE    VERSION
    master   Ready    control-plane,master   109m   v1.32.3+k3s1
    node1    Ready    worker                 102m   v1.32.3+k3s1
-   node2    Ready    worker 
+   node2    Ready    worker                 102m   v1.32.3+k3s1
    ```
 
 结语
