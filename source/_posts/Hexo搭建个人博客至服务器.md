@@ -34,7 +34,7 @@ sudo yum install -y git
 
 打开[node.js-download](https://nodejs.org/en/download)这个链接，选择符合自己的系统环境复制命令到终端进行下载即可。
 
-![](https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250408144451542.png)
+![](https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504130154867.png)
 
 ### 安装nginx环境
 
@@ -198,7 +198,7 @@ git config --global user.name "BoShuai Li"
 
 打开[node.js-download](https://nodejs.org/en/download)这个链接，选择符合自己的系统环境复制命令到终端进行下载安装即可。
 
-![](https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250408144428675.png)
+![](https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504130149026.png)
 
 ### 安装hexo环境
 
