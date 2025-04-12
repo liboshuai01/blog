@@ -131,10 +131,10 @@ toc: true
 
    ```shell
    # 老系统执行
-   systemctl restart network
+   sudo systemctl restart network
    
    # 新系统执行
-   systemctl restart NetworkManager
+   sudo systemctl restart NetworkManager
    ```
 
 结语
