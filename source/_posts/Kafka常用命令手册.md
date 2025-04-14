@@ -1,8 +1,8 @@
 ---
 title: Kafka常用命令手册
 date: 2023-11-10 11:24:02
-tags: [ Linux,Kafka,命令手册 ]
-categories: [ 命令手册 ]
+tags: [ Linux,Kafka ]
+categories: [ 运维手册 ]
 cover: https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504130247633.png
 toc: true
 ---
