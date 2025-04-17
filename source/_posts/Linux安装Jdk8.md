@@ -13,6 +13,8 @@ toc: true
 
 ## 自动安装
 
+> 注意: 请修改脚本中的 `/your/install/path` 为您所需要的安装路径。
+
 ```shell
 curl -sfL https://lbs-install.oss-cn-shanghai.aliyuncs.com/jdk/install_jdk8.sh | sh -s -- /your/install/path
 ```
