@@ -66,61 +66,62 @@ toc: true
 > 2. 命令中出现的IP，均需要替换为自己集群中的IP【必须】
 > 3. 命令中出现的`/home/lbs/software`路径，可选择替换为自定义路径【可选】
 
-1、下载安装包，并解压安装包到安装kafka的指定路径（这里设定为`/home/lbs/software/kafka`）
+1. 下载安装包，并解压安装包到安装kafka的指定路径（这里设定为`/home/lbs/software/kafka`）
 
-```
-wget https://archive.apache.org/dist/kafka/2.5.0/kafka_2.12-2.5.0.tgz
-tar -zxvf kafka_2.12-2.5.0.tgz -C /home/lbs/software
-mv /home/lbs/software/kafka_2.12-2.5.0 /home/lbs/software/kafka
-```
+   ```
+   wget https://archive.apache.org/dist/kafka/2.5.0/kafka_2.12-2.5.0.tgz
+   tar -zxvf kafka_2.12-2.5.0.tgz -C /home/lbs/software
+   mv /home/lbs/software/kafka_2.12-2.5.0 /home/lbs/software/kafka
+   ```
 
 2. 创建存放 kafka 消息的目录
 
-```shell
-mkdir -p /home/lbs/software/kafka/kafka-logs
-```
+   ```shell
+   mkdir -p /home/lbs/software/kafka/kafka-logs
+   ```
 
 3. 修改`server.properties`配置文件
 
-```
-vim /home/lbs/software/kafka/config/server.properties
-
-# 修改如下参数
-broker.id=0 
-......
-listeners=PLAINTEXT://:9092
-......
-advertised.listeners=PLAINTEXT://10.0.0.87:9092
-......
-log.dirs=/home/lbs/software/kafka/kafka-logs
-......
-zookeeper.connect=10.0.0.87:2181,10.0.0.81:2181,10.0.0.82:2181
-
-# 新增如下参数
-# 关闭自动创建topic
-auto.create.topics.enable=false
-# 开启topic删除
-delete.topic.enable=true
-```
-
-> 参数说明：
->
-> 1.`broker.id` ： 集群内全局唯一标识；
->
-> 2.每个节点上需要设置不同的值 `listeners`：这个`IP`地址也是与本机相关的，每个节点上设置为自己的`IP`地址;
->
-> 3.`log.dirs`：存放`kafka`消息的
->
-> 4.`zookeeper.connect`: 配置的是 zookeeper 集群地址
->
-> 如果你内外网卡地址不一样，listeners就需要特殊的配置了，查看[Kafka学习理解-listeners配置](https://blog.51cto.com/u_14286115/4745727)
+   ```
+   vim /home/lbs/software/kafka/config/server.properties
+   
+   # 修改如下参数
+   broker.id=0 
+   ......
+   listeners=PLAINTEXT://:9092
+   ......
+   advertised.listeners=PLAINTEXT://10.0.0.87:9092
+   ......
+   log.dirs=/home/lbs/software/kafka/kafka-logs
+   ......
+   zookeeper.connect=10.0.0.87:2181,10.0.0.81:2181,10.0.0.82:2181
+   
+   # 新增如下参数
+   # 关闭自动创建topic
+   auto.create.topics.enable=false
+   # 开启topic删除
+   delete.topic.enable=true
+   ```
+   
+   > 参数说明：
+   >
+   > 1.`broker.id` ： 集群内全局唯一标识；
+   >
+   > 2.每个节点上需要设置不同的值 `listeners`：这个`IP`地址也是与本机相关的，每个节点上设置为自己的`IP`地址;
+   >
+   > 3.`log.dirs`：存放`kafka`消息的
+   >
+   > 4.`zookeeper.connect`: 配置的是 zookeeper 集群地址
+   >
+   > 如果你内外网卡地址不一样，listeners就需要特殊的配置了，查看[Kafka学习理解-listeners配置](https://blog.51cto.com/u_14286115/4745727)
 
 4. 分发`kafka`安装目录
 
-```shell
-# 分发kafka安装目录给其他集群节点
-xsync /home/lbs/software/kafka
-```
+   ```shell
+   # 分发kafka安装目录给其他集群节点
+   xsync /home/lbs/software/kafka
+   ```
+   
 5. 分别登录到其他两台机器，修改其`server.properties`的如下内容
 
     - `broker.id`: 各机器必须保持唯一，例如`master`为`1`，那么`node1`、`node2`为`2`、`3`。
@@ -128,44 +129,46 @@ xsync /home/lbs/software/kafka
 
 6. 编写 `kafka` 集群操作脚本
 
-> 替换IP地址，然后直接执行下面命令即可
-
-```shell
-echo '#!/bin/bash
-case $1 in
-"start"){
-        for i in 10.0.0.87 10.0.0.81 10.0.0.82
-        do 
-                 echo -------------------------------- $i kafka 启动 ---------------------------
-                ssh $i "source /etc/profile;/home/lbs/software/kafka/bin/kafka-server-start.sh -daemon /home/lbs/software/kafka/config/server.properties"
-        done
-}
-;;
-"stop"){
-        for i in 10.0.0.87 10.0.0.81 10.0.0.82
-        do
-                echo -------------------------------- $i kafka 停止 ---------------------------
-                ssh $i "/home/lbs/software/kafka/bin/kafka-server-stop.sh"
-        done
-}
-;;
-"status"){
-        for i in 10.0.0.87 10.0.0.81 10.0.0.82
-        do
-                echo -------------------------------- $i kafka 状态 ---------------------------
-                status=$(ssh $i "source /etc/profile;jps | grep -i kafka")
-                if [[ -z "$status" ]]
-                then
-                    echo "Kafka not running!"
-                else
-                    echo "$status"
-                fi
-        done
-}
-;;
-esac' > /home/lbs/software/kafka/bin/kafka-cluster.sh
-chmod +x /home/lbs/software/kafka/bin/kafka-cluster.sh
-```
+   > 替换IP地址，然后直接执行下面命令即可
+   
+   ```shell
+    tee /home/lbs/software/kafka/bin/kafka-cluster.sh <<'EOF'
+    #!/bin/bash
+    case $1 in
+    "start"){
+            for i in master node1 node2
+            do
+                     echo -------------------------------- $i kafka 启动 ---------------------------
+                    ssh $i "source ~/.bash_profile;/home/lbs/software/kafka/bin/kafka-server-start.sh -daemon /home/lbs/software/kafka/config/server.properties"
+            done
+    }
+    ;;
+    "stop"){
+            for i in master node1 node2
+            do
+                    echo -------------------------------- $i kafka 停止 ---------------------------
+                    ssh $i "/home/lbs/software/kafka/bin/kafka-server-stop.sh"
+            done
+    }
+    ;;
+    "status"){
+            for i in master node1 node2
+            do
+                    echo -------------------------------- $i kafka 状态 ---------------------------
+                    status=$(ssh $i "source ~/.bash_profile;jps | grep -i kafka")
+                    if [[ -z "$status" ]]
+                    then
+                        echo "Kafka not running!"
+                    else
+                        echo "$status"
+                    fi
+            done
+    }
+    ;;
+    esac
+    EOF
+    chmod +x /home/lbs/software/kafka/bin/kafka-cluster.sh
+   ```
 
 ## 操作集群
 

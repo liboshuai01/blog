@@ -1,7 +1,7 @@
 ---
 title: Hyper-V安装Linux虚拟机并配置静态IP
 date: 2025-04-13 02:07:05
-tags: [环境搭建,Linux,Hyper-V,虚拟机]
+tags: [Linux,Hyper-V,虚拟机]
 categories: [环境搭建]
 cover: https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504130209784.png
 toc: true

@@ -1,8 +1,8 @@
 ---
 title: Linux通过V2raya科学上网
 date: 2023-10-14 22:00:10
-tags: [环境搭建,Linux,V2raya]
-categories: [环境搭建]
+tags: [Linux,V2raya]
+categories: [运维手册]
 cover: https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504130200062.png
 toc: true
 ---

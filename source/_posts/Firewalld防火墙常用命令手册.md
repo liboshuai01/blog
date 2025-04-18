@@ -1,8 +1,8 @@
 ---
-title: firewalld防火墙常用命令手册
+title: Firewalld防火墙常用命令手册
 date: 2022-07-01 09:59:00
-tags: [Linux,防火墙,命令手册]
-categories: [命令手册]
+tags: [Linux,防火墙]
+categories: [运维手册]
 cover: https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504130240764.png
 toc: true
 ---
