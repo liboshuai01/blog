@@ -33,6 +33,7 @@ Frp（Fast Reverse Proxy）是一款高性能的内网穿透工具，广泛应�
 
     ```shell
     wget https://github.com/fatedier/frp/releases/download/v0.62.0/frp_0.62.0_linux_amd64.tar.gz
+    # 注意修改路径
     tar -zxvf frp_0.62.0_linux_amd64.tar.gz -C /home/lbs/software
     mv /home/lbs/software/frp_0.62.0_linux_amd64 /home/lbs/software/frp
     rm -rf frp_0.62.0_linux_amd64.tar.gz
@@ -86,8 +87,10 @@ Frp（Fast Reverse Proxy）是一款高性能的内网穿透工具，广泛应�
    
    [Service]
    Type=simple
+   # 注意修改用户及用户组
    User=lbs
    Group=lbs
+   # 注意修改路径
    ExecStart=/home/lbs/software/frp/frps -c /home/lbs/software/frp/frps.toml
    ExecStop=/usr/bin/kill -15 $MAINPID
    ExecReload=/usr/bin/kill -HUP $MAINPID
@@ -135,6 +138,7 @@ Frp（Fast Reverse Proxy）是一款高性能的内网穿透工具，广泛应�
 
     ```shell
     wget https://github.com/fatedier/frp/releases/download/v0.62.0/frp_0.62.0_linux_amd64.tar.gz
+    # 注意修改路径
     tar -zxvf frp_0.62.0_linux_amd64.tar.gz -C /home/lbs/software
     mv /home/lbs/software/frp_0.62.0_linux_amd64 /home/lbs/software/frp
     rm -rf frp_0.62.0_linux_amd64.tar.gz
@@ -185,8 +189,10 @@ Frp（Fast Reverse Proxy）是一款高性能的内网穿透工具，广泛应�
    
    [Service]
    Type=simple
+   # 注意修改用户及用户组
    User=lbs
    Group=lbs
+   # 注意修改路径
    ExecStart=/home/lbs/software/frp/frpc -c /home/lbs/software/frp/frpc.toml
    ExecStop=/usr/bin/kill -15 $MAINPID
    ExecReload=/usr/bin/kill -HUP $MAINPID
