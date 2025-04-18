@@ -7,7 +7,13 @@ cover: https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504180935601.png
 toc: true
 ---
 
-本篇文章深入讲解了在 Spring Boot 项目中，如何通过 Maven 多环境配置，实现开发（dev）、验证（uat）等不同环境下的资源文件管理与构建流程。文章首先介绍了 pom.xml 中 profiles、build 资源过滤与属性占位的核心设置，详述 profilesActive 参数如何与 application.yml、application-dev.yml、application-uat.yml 等文件关联；然后借助 IDEA 或 mvn -Pdev、-Puat 等命令行参数，演示了在本地和打包阶段灵活切换环境的操作。通过一个简单的 DemoController 示例，说明了环境变量对 @Value 注入的影响。该方案让团队能够统一管理多套配置，避免手动拷贝与冲突，大幅提升构建与部署效率，保证环境隔离和一致性，帮助后端开发人员在不同阶段快速切换与验证配置。
+本篇文章深入讲解了在 Spring Boot 项目中，如何通过 Maven 多环境配置，实现开发（dev）、验证（uat）等不同环境下的资源文件管理与构建流程。
+
+文章首先介绍了 pom.xml 中 profiles、build 资源过滤与属性占位的核心设置，详述 profilesActive 参数如何与 application.yml、application-dev.yml、application-uat.yml 等文件关联；
+
+然后借助 IDEA 或 mvn -Pdev、-Puat 等命令行参数，演示了在本地和打包阶段灵活切换环境的操作。
+
+通过一个简单的 DemoController 示例，说明了环境变量对 @Value 注入的影响。该方案让团队能够统一管理多套配置，避免手动拷贝与冲突，大幅提升构建与部署效率，保证环境隔离和一致性，帮助后端开发人员在不同阶段快速切换与验证配置。
 
 <!-- more -->
 
@@ -212,4 +218,10 @@ toc: true
 
 ## 结语
 
-在项目开发和运维中，多环境配置管理是常见且关键的需求，能够帮助团队快速在开发、测试、预生产、生产等不同阶段进行环境切换与验证。本文所示的 Maven 多环境配置方案，通过 profiles 与资源过滤的巧妙组合，实现了配置与代码分离、打包与运行时的自动化切换。开发者只需在 pom.xml 中定义好 profiles 和对应的占位符，在 application-xxx.yml 中维护环境属性，然后通过 IDEA 环境选择或 mvn -P 指定环境，即可完成一键打包与部署。此外，该方法可灵活拓展至更多环境（如 prod、staging）及更多资源文件（如日志配置、数据源配置等），并可无缝集成至 CI/CD 流程，实现自动化构建、测试与发布，从而进一步提升团队协作效率和系统可靠性。
+在项目开发和运维中，多环境配置管理是常见且关键的需求，能够帮助团队快速在开发、测试、预生产、生产等不同阶段进行环境切换与验证。
+
+本文所示的 Maven 多环境配置方案，通过 profiles 与资源过滤的巧妙组合，实现了配置与代码分离、打包与运行时的自动化切换。
+
+开发者只需在 pom.xml 中定义好 profiles 和对应的占位符，在 application-xxx.yml 中维护环境属性，然后通过 IDEA 环境选择或 mvn -P 指定环境，即可完成一键打包与部署。
+
+此外，该方法可灵活拓展至更多环境（如 prod、staging）及更多资源文件（如日志配置、数据源配置等），并可无缝集成至 CI/CD 流程，实现自动化构建、测试与发布，从而进一步提升团队协作效率和系统可靠性。
