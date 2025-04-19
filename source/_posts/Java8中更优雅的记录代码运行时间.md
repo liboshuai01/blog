@@ -1,7 +1,10 @@
 ---
 title: Java8中更优雅的记录代码运行时间
-date: 2025-04-19 16:32:25
-tags:
+date: 2023-04-19 16:32:25
+tags: [Java,Jdk8]
+categories: [Java]
+cover: https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504191643018.png
+toc: true
 ---
 
 在日常后端开发中，性能优化是一项核心任务。我们经常需要测量某段代码的执行耗时，例如查询耗时、接口响应时间、批处理任务处理时间等。在 Java 中，传统的做法可能是使用 System.currentTimeMillis()：
