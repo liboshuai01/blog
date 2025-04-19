@@ -1,7 +1,10 @@
 ---
-title: Idea远程服务器在线Debug
-date: 2025-04-19 17:08:12
-tags:
+title: Idea远程Debug Java应用
+date: 2023-08-29 17:08:12
+tags: [Java,Linux,Idea]
+categories: [Java]
+cover: https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504192344064.png
+toc: true
 ---
 
 远程 Debug 是后端开发者在排查线下环境（如测试、预发布）问题时的利器。通过在本地 IDE 中连接远端服务器上的 Java 进程，我们可以像本地调试一样设置断点、查看变量、单步执行，极大地提高了问题定位的效率。
@@ -59,6 +62,10 @@ tags:
 ```
 
 先复制这段参数，下一步我们将在服务器中使用。
+
+![](https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504192332827.png)
+
+![](https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504192334658.png)
 
 ---
 
