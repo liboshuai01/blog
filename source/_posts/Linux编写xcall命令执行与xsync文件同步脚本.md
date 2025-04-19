@@ -30,58 +30,58 @@ toc: true
 2. 在需要的节点上执行下面的命令，以便创建`xsync`
    > 执行命令之前，注意修改`for i in master node1 node2`为自己的主机ip
 
-```
-sudo tee /usr/local/bin/xsync <<'EOF'
-#!/bin/bash
-
-# 获取输出参数，如果没有参数则直接返回
-pcount=$#
-if [ $pcount -eq 0 ]; then
-    echo "No parameter found!";
-    exit 1;
-fi
-
-# 获取传输文件名
-p1=$1
-filename=$(basename "$p1")
-echo "Load file $p1 success!"
-
-# 获取文件的绝对路径
-pdir=$(cd -P $(dirname "$p1") && pwd)
-echo "File path is $pdir"
-
-# 获取当前用户（如果想使用root用户权限拷贝文件，在命令后加入-root参数即可）
-user=$2
-case "$user" in
-    "-root")
-        user="root"
-        ;;
-    "")
-        user=$(whoami)
-        ;;
-    *)
-        echo "Illegal parameter $user"
-        exit 1
-        ;;
-esac
-
-echo "Using user: $user"
-
-# 确保从机的目标目录存在
-for i in master node1 node2; do
-    echo "================current host is $i================="
-    ssh "$user@$i" "mkdir -p $pdir"
-    rsync -av "$pdir/$filename" "$user@$i:$pdir"
-    if [ $? -ne 0 ]; then
-        echo "Rsync to $i failed!"
-        exit 1
-    fi
-done
-
-echo "Complete!"
-EOF
-sudo chmod +x /usr/local/bin/xsync
-```
+   ```
+   sudo tee /usr/local/bin/xsync <<'EOF'
+   #!/bin/bash
+   
+   # 获取输出参数，如果没有参数则直接返回
+   pcount=$#
+   if [ $pcount -eq 0 ]; then
+       echo "No parameter found!";
+       exit 1;
+   fi
+   
+   # 获取传输文件名
+   p1=$1
+   filename=$(basename "$p1")
+   echo "Load file $p1 success!"
+   
+   # 获取文件的绝对路径
+   pdir=$(cd -P $(dirname "$p1") && pwd)
+   echo "File path is $pdir"
+   
+   # 获取当前用户（如果想使用root用户权限拷贝文件，在命令后加入-root参数即可）
+   user=$2
+   case "$user" in
+       "-root")
+           user="root"
+           ;;
+       "")
+           user=$(whoami)
+           ;;
+       *)
+           echo "Illegal parameter $user"
+           exit 1
+           ;;
+   esac
+   
+   echo "Using user: $user"
+   
+   # 确保从机的目标目录存在
+   for i in master node1 node2; do
+       echo "================current host is $i================="
+       ssh "$user@$i" "mkdir -p $pdir"
+       rsync -av "$pdir/$filename" "$user@$i:$pdir"
+       if [ $? -ne 0 ]; then
+           echo "Rsync to $i failed!"
+           exit 1
+       fi
+   done
+   
+   echo "Complete!"
+   EOF
+   sudo chmod +x /usr/local/bin/xsync
+   ```
 
 ### 使用示例
 将`one.txt`分发到集群的其他机器的相同路径下
