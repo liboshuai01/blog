@@ -14,7 +14,7 @@ toc: true
 - 一台以上的centos服务器
 - 各个机器之间完成的ssh免密
 
-> 关于如何`ssh免密`，推荐我的博文 [# centos之间ssh免密](https://juejin.cn/post/7277395904217939968)
+> 关于如何`ssh免密`，推荐我的博文 [# centos之间ssh免密](https://liboshuai.icu/pages/Linux%E5%A4%9A%E5%8F%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8B%E9%97%B4%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95/)
 
 ## `xsync`
 
