@@ -2,7 +2,7 @@
 title: Git 忽略文件配置与 .gitignore 不生效问题解决方案
 date: 2025-03-01 16:20:16
 tags: [Git,Idea]
-categories: [杂货铺]
+categories: [杂货小铺]
 cover: https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504191621019.png
 toc: true
 ---
