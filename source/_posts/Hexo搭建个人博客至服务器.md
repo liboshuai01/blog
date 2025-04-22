@@ -222,6 +222,8 @@ git config --global user.name "BoShuai Li"
     yarn install
     # 安装deploy命令支持
     yarn add hexo-deployer-git
+    # 安装短链路径插件
+    yarn add hexo-abbrlink
     # 启动Hexo本地服务
     hexo s
     ```
@@ -312,11 +314,19 @@ timezone: 'Asia/Shanghai'
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
 url: https://liboshuai.icu
 #permalink: :year/:month/:day/:title/
-permalink: '/pages/:title/'
+#permalink: '/pages/:title/'
+permalink: '/pages/:abbrlink/'
 permalink_defaults:
 pretty_urls:
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
   trailing_html: true # Set to false to remove trailing '.html' from permalinks
+# abbrlink config
+abbrlink:
+   alg: crc32      # Algorithm used to calc abbrlink. Support crc16(default) and crc32
+   rep: hex        # Representation of abbrlink in URLs. Support dec(default) and hex
+   drafts: false   # Whether to generate abbrlink for drafts. (false in default)
+   force: false    # Enable force mode. In this mode, the plugin will ignore the cache, and calc the abbrlink for every post even it already had an abbrlink. (false in default)
+   writeback: true # Whether to write changes to front-matters back to the actual markdown files. (true in default)
 
 # Directory
 source_dir: source
