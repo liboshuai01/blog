@@ -1,10 +1,15 @@
 ---
 title: k3s集群一键部署
-date: 2025-04-11 14:24:00
-tags: [ 环境搭建,Linux,k8s ]
-categories: [ 环境搭建 ]
-cover: https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250411142201678.png
+tags:
+  - 环境搭建
+  - Linux
+  - k8s
+categories:
+  - 环境搭建
+cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250411142201678.png'
 toc: true
+abbrlink: 617fd45
+date: 2025-04-11 14:24:00
 ---
 
 K3s 是一个由 Rancher Labs 推出的轻量级 Kubernetes 发行版，专为边缘计算、物联网以及资源有限的环境而设计。

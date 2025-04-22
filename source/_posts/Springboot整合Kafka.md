@@ -1,10 +1,16 @@
 ---
 title: Springboot整合Kafka
-date: 2023-11-18 15:35:00
-tags: [Java,Linux,Kafka,SpringBoot]
-categories: [Java]
-cover: https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250417184826499.png
+tags:
+  - Java
+  - Linux
+  - Kafka
+  - SpringBoot
+categories:
+  - Java
+cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250417184826499.png'
 toc: true
+abbrlink: e6e6494a
+date: 2023-11-18 15:35:00
 ---
 
 在构建生产级Spring Boot应用与Kafka的集成方案时，我发现大多数现有教程都存在明显的局限性。这些资料往往停留在基础Demo层面，缺乏对生产环境关键配置的深入探讨。

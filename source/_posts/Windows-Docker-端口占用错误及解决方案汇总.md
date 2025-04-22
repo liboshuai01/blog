@@ -1,10 +1,14 @@
 ---
 title: Windows Docker 端口占用错误及解决方案汇总
-date: 2025-04-20 12:15:59
-tags: [Windows,Docker]
-categories: [踩坑记录]
-cover: https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504201217301.png
+tags:
+  - Windows
+  - Docker
+categories:
+  - 踩坑记录
+cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504201217301.png'
 toc: true
+abbrlink: 4fbcc9bd
+date: 2025-04-20 12:15:59
 ---
 
 在 Windows 环境下使用 Docker 容器时，端口占用错误是开发和运维中常见且棘手的问题。用户启动容器时，常会遭遇类似“Ports are not available”或“can’t bind on the specified endpoint”的报错，导致服务无法正常启动。此类问题多源自 Windows 操作系统对 TCP 动态端口的管理机制以及 Hyper-V 虚拟化网络服务对端口的预留策略。特别是在系统自动更新后，动态端口范围可能被异常重置，引发端口冲突，从而影响 Docker 容器的端口绑定。本文将深入剖析该问题的成因，介绍如何通过查看端口分配，合理调整动态端口范围，以及重启网络服务等实用技巧，有效解决 Windows Docker 端口占用错误，帮助开发者快速恢复容器运行，提高调试效率。

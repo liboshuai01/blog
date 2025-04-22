@@ -1,10 +1,14 @@
 ---
 title: 配置 MySQL 8 允许 Root 用户远程访问
-date: 2023-11-12 01:01:01
-tags: [ Linux,mysql ]
-categories: [ 运维手册 ]
-cover: https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250414141557514.png
+tags:
+  - Linux
+  - mysql
+categories:
+  - 运维手册
+cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250414141557514.png'
 toc: true
+abbrlink: 69b2f848
+date: 2023-11-12 01:01:01
 ---
 
 作为后端开发人员，我们经常需要在本地连接到远程服务器上的 MySQL 数据库进行开发、测试或维护。

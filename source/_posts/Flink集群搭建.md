@@ -1,10 +1,15 @@
 ---
 title: Flink集群搭建
-date: 2023-10-12 16:40:00
-tags: [环境搭建,Linux,Flink]
-categories: [环境搭建]
-cover: https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250407192319146.png
+tags:
+  - 环境搭建
+  - Linux
+  - Flink
+categories:
+  - 环境搭建
+cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250407192319146.png'
 toc: true
+abbrlink: f0a658ce
+date: 2023-10-12 16:40:00
 ---
 
 本文系统化介绍了如何在 CentOS 7 环境下搭建 Apache Flink 集群，从环境准备到集群验证，详细覆盖了每个操作步骤与配置细节。首先，列出了安装前的环境准备要求，包括关闭防火墙、配置免密登录、安装 JDK8 和同步脚本，以及确保 Hadoop 集群已配备高可用特性，为 Flink 的运行奠定基础。

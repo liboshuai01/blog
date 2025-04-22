@@ -1,10 +1,15 @@
 ---
 title: Kafka集群搭建
-date: 2023-10-10 10:34:00
-tags: [环境搭建,Linux,Kafka]
-categories: [环境搭建]
-cover: https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250408113627328.png
+tags:
+  - 环境搭建
+  - Linux
+  - Kafka
+categories:
+  - 环境搭建
+cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250408113627328.png'
 toc: true
+abbrlink: '1267253'
+date: 2023-10-10 10:34:00
 ---
 
 本篇技术博文详细介绍了如何在 Linux 环境下完成 Kafka 集群的搭建，适用于需要部署高可用分布式消息队列的场景。文章内容采用循序渐进的方式，从环境准备到安装配置，再到操作脚本编写和集群管理，以及最终的验证集群运行状态，涵盖了 Kafka 集群搭建的每一个关键环节。

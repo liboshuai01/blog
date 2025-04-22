@@ -1,10 +1,14 @@
 ---
 title: Linux多台服务器之间免密登录
-date: 2023-09-11 23:53:28
-tags: [Linux,ssh]
-categories: [运维手册]
-cover: https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504192355814.png
+tags:
+  - Linux
+  - ssh
+categories:
+  - 运维手册
+cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504192355814.png'
 toc: true
+abbrlink: f7c16155
+date: 2023-09-11 23:53:28
 ---
 
 在日常的后端开发和运维工作中，我们经常需要频繁登录不同的服务器进行部署、排查问题或上传文件。传统的基于用户名和密码的登录方式既不安全又不高效。为此，我们可以利用 SSH 公钥认证的方式，实现无密码（免密）登录远程服务器，提升安全性与操作效率。

@@ -1,10 +1,14 @@
 ---
 title: Linux通过V2raya科学上网
-date: 2023-10-14 22:00:10
-tags: [Linux,V2raya]
-categories: [运维手册]
-cover: https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504130200062.png
+tags:
+  - Linux
+  - V2raya
+categories:
+  - 运维手册
+cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504130200062.png'
 toc: true
+abbrlink: acf97f74
+date: 2023-10-14 22:00:10
 ---
 
 本文详细介绍了如何在Linux系统下使用V2raya进行科学上网设置。文章首先提供了一键安装方案，通过简单的命令下载相关脚本和安装包，实现V2ray及V2raya的快速部署。该方法适合对Linux操作较熟练的用户，可以迅速完成基础环境搭建。

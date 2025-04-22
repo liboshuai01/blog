@@ -1,10 +1,15 @@
 ---
 title: SpringBoot整合ELK日志
-date: 2023-02-27 16:08:38
-tags: [ Java,SpringBoot,ELK ]
-categories: [ Java ]
-cover: https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504191609739.png
+tags:
+  - Java
+  - SpringBoot
+  - ELK
+categories:
+  - Java
+cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504191609739.png'
 toc: true
+abbrlink: 7444ad67
+date: 2023-02-27 16:08:38
 ---
 
 在现代微服务架构中，日志的集中管理和可视化分析对于问题排查与系统监控至关重要。本文详尽介绍了如何在 Spring Boot 项目中整合

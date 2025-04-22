@@ -1,10 +1,16 @@
 ---
 title: 浅谈Kafka启动脚本中JDK8下的JVM参数配置
-date: 2025-04-11 13:10:25
-tags: [Java,Linux,Kafka,Jvm]
-categories: [Java]
-cover: https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250411131208559.png
+tags:
+  - Java
+  - Linux
+  - Kafka
+  - Jvm
+categories:
+  - Java
+cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250411131208559.png'
 toc: true
+abbrlink: fc13aeb
+date: 2025-04-11 13:10:25
 ---
 
 近年来，Kafka 已经成为大规模、高吞吐数据流处理的重要组件。为了保证服务的性能与稳定性，在启动 Kafka 时合理地配置 JVM 参数非常关键。

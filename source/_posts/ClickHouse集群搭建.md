@@ -1,10 +1,15 @@
 ---
 title: ClickHouse集群搭建
-date: 2023-09-28 04:16:54
-tags: [环境搭建,Linux,ClickHouse]
-categories: [环境搭建]
-cover: https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504200417825.png
+tags:
+  - 环境搭建
+  - Linux
+  - ClickHouse
+categories:
+  - 环境搭建
+cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504200417825.png'
 toc: true
+abbrlink: 71df73fa
+date: 2023-09-28 04:16:54
 ---
 
 在大数据分析与实时查询需求日益增长的背景下，ClickHouse 作为一款高性能的列式数据库，凭借其出色的并发能力和极致的查询效率，已成为数据处理和分析领域的重要技术选择。本文将详细介绍如何在 CentOS7 操作系统上，使用离线 tgz 包部署方式，搭建一个高可用、可扩展的 ClickHouse 集群环境。通过整合 Zookeeper 实现副本同步控制，构建包含两个分片双副本的 ClickHouse 集群，为后续的大规模数据分析打下坚实基础。指南适用于网络限制严格或生产环境对稳定性要求较高的用户。

@@ -1,10 +1,14 @@
 ---
 title: Git 忽略文件配置与 .gitignore 不生效问题解决方案
-date: 2025-03-01 16:20:16
-tags: [Git,Idea]
-categories: [杂货小铺]
-cover: https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504191621019.png
+tags:
+  - Git
+  - Idea
+categories:
+  - 杂货小铺
+cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504191621019.png'
 toc: true
+abbrlink: d98067fd
+date: 2025-03-01 16:20:16
 ---
 
 在日常开发中，我们通常不希望将日志文件、临时文件或编译生成的中间文件（如 target、.idea 等）提交到 Git 仓库中。通过配置 `.gitignore` 文件，我们可以让 Git 忽略这些不需要版本控制的内容。

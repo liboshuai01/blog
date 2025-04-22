@@ -1,10 +1,15 @@
 ---
 title: Frp内网穿透教程
-date: 2022-12-02 08:01:00
-tags: [Linux,Frp,内网穿透]
-categories: [运维手册]
-cover: https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504181203794.png
+tags:
+  - Linux
+  - Frp
+  - 内网穿透
+categories:
+  - 运维手册
+cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504181203794.png'
 toc: true
+abbrlink: b2dafbdf
+date: 2022-12-02 08:01:00
 ---
 
 Frp（Fast Reverse Proxy）是一款高性能的内网穿透工具，广泛应用于解决没有公网IP的本地服务如何向公网暴露访问入口的问题。

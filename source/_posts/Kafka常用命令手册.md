@@ -1,10 +1,14 @@
 ---
 title: Kafka常用命令手册
-date: 2023-11-10 11:24:02
-tags: [ Linux,Kafka ]
-categories: [ 运维手册 ]
-cover: https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504130247633.png
+tags:
+  - Linux
+  - Kafka
+categories:
+  - 运维手册
+cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504130247633.png'
 toc: true
+abbrlink: d88bccc7
+date: 2023-11-10 11:24:02
 ---
 
 Apache Kafka作为当前最流行的分布式消息队列之一，拥有一整套命令行工具来帮助维护和管理集群。在这篇博文中，我们将概览一些最常用的Kafka管理命令，为运维人员提供一个快速参考。

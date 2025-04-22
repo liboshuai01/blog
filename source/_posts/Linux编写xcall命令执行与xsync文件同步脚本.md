@@ -1,10 +1,14 @@
 ---
 title: Linux编写xcall命令执行与xsync文件同步脚本
-date: 2024-04-31 04:22:58
-tags: [Linux,脚本]
-categories: [运维手册]
-cover: https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504200424630.png
+tags:
+  - Linux
+  - 脚本
+categories:
+  - 运维手册
+cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504200424630.png'
 toc: true
+abbrlink: c8cd0634
+date: 2024-05-01 04:22:58
 ---
 
 在多机集群环境中，运维人员经常需要对多台服务器执行相同操作或同步分发文件，这不仅繁琐而且容易出错。为了提升工作效率和操作一致性，本文介绍了两个实用的 Linux 脚本工具——xcall 和 xsync。xcall 脚本支持多主机并行执行指定命令，极大地方便了集群管理和批量任务执行；xsync 脚本则通过 rsync 实现了多台机器间的文件目录同步，确保环境配置和数据一致。本文详细说明了脚本的创建方法与使用示例，帮助大家轻松完成中间件集群安装与配置工作。

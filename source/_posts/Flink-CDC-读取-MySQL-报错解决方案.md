@@ -1,10 +1,15 @@
 ---
 title: Flink CDC 读取 MySQL 报错解决方案
-date: 2023-11-09 04:32:37
-tags: [ 踩坑记录,Flink,Mysql ]
-categories: [ 踩坑记录 ]
-cover: https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504200433405.png
+tags:
+  - 踩坑记录
+  - Flink
+  - Mysql
+categories:
+  - 踩坑记录
+cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504200433405.png'
 toc: true
+abbrlink: 36fdbc34
+date: 2023-11-09 04:32:37
 ---
 
 在大数据处理和实时数据同步的场景中，Flink CDC作为一款强大的实时变更数据捕获工具，广泛应用于MySQL数据库的增量数据读取与处理。然而，使用过程中如果用户权限配置不当，往往会遇到诸如“Access denied; you need (at least one of) the REPLICATION SLAVE privilege(s) for this operation”的报错，阻碍数据流的正常传输。本文将详解该错误的产生原因，并提供一套简洁有效的权限配置方案，助力用户顺利搭建Flink CDC环境，实现MySQL数据的高效同步。

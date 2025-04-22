@@ -1,10 +1,15 @@
 ---
 title: SpringBoot+Maven多环境配置
-date: 2022-12-02 08:01:00
-tags: [Java,SpringBoot,Maven]
-categories: [Java]
-cover: https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504180935601.png
+tags:
+  - Java
+  - SpringBoot
+  - Maven
+categories:
+  - Java
+cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504180935601.png'
 toc: true
+abbrlink: 92bf4e1a
+date: 2022-12-02 08:01:00
 ---
 
 本篇文章深入讲解了在 Spring Boot 项目中，如何通过 Maven 多环境配置，实现开发（dev）、验证（uat）等不同环境下的资源文件管理与构建流程。
