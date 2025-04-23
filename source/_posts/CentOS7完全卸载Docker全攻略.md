@@ -163,5 +163,3 @@ sudo systemctl status docker.service
 ## 总结与建议
 
 通过以上步骤，您已成功在 CentOS 7 系统上彻底卸载 Docker，并清理了所有容器、镜像和相关数据。这种深度清理确保后续重新安装或更换容器管理工具时，不会受到原有 Docker 环境的干扰。
-
-
