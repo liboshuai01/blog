@@ -10,7 +10,7 @@ categories:
 cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504232324210.png'
 toc: true
 abbrlink: 43ff9685
-date: 2025-04-23 23:22:26
+date: 2023-12-06 23:22:26
 ---
 
 随着企业应用的不断发展，持续集成与持续部署（CI/CD）已成为提升开发效率和保障软件质量的重要手段。
