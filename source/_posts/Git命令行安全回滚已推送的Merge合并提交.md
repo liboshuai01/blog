@@ -1,5 +1,5 @@
 ---
-title: Git如何回滚已经push到远程仓库的merge操作
+title: Git命令行安全回滚已推送的Merge合并提交
 tags:
   - Git
   - Idea
