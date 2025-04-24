@@ -1,7 +1,6 @@
 ---
 title: Flink集群搭建
 tags:
-  - 环境搭建
   - Linux
   - Flink
 categories:

@@ -1,7 +1,6 @@
 ---
 title: Hadoop集群搭建
 tags:
-  - 环境搭建
   - Linux
   - Hadoop
 categories:

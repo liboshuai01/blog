@@ -2,8 +2,6 @@
 title: Frp内网穿透教程
 tags:
   - Linux
-  - Frp
-  - 内网穿透
 categories:
   - 运维手册
 cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504181203794.png'

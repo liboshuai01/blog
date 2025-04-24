@@ -1,7 +1,7 @@
 ---
 title: Flink CDC 读取 MySQL 报错解决方案
 tags:
-  - 踩坑记录
+  - 报错解决
   - Flink
   - Mysql
 categories:

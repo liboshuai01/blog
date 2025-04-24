@@ -1,7 +1,6 @@
 ---
 title: Doris集群搭建
 tags:
-  - 环境搭建
   - Linux
   - Doris
 categories:

@@ -1,7 +1,6 @@
 ---
 title: Hexo搭建个人博客至服务器
 tags:
-  - 环境搭建
   - Linux
   - Hexo
 categories:

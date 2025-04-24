@@ -1,7 +1,6 @@
 ---
 title: CentOS离线Kubekey一键部署K8s集群指南
 tags:
-  - 环境搭建
   - Linux
   - k8s
 categories:
