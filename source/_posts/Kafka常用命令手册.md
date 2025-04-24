@@ -4,7 +4,7 @@ tags:
   - Linux
   - Kafka
 categories:
-  - 运维手册
+  - 大数据
 cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504130247633.png'
 toc: true
 abbrlink: d88bccc7

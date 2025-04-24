@@ -6,7 +6,7 @@ tags:
   - Hdfs
 categories:
   - 大数据
-cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504130247633.png'
+cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250424134712836.png'
 toc: true
 abbrlink: 28d329f5
 date: 2023-12-25 13:18:48
