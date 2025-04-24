@@ -5,7 +5,7 @@ tags:
   - Flink
   - Mysql
 categories:
-  - 踩坑记录
+  - 大数据
 cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504200433405.png'
 toc: true
 abbrlink: 36fdbc34

@@ -7,7 +7,7 @@ tags:
   - Harbor
   - Docker
 categories:
-  - 运维手册
+  - 容器化
 cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250423114058678.png'
 toc: true
 ---

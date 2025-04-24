@@ -4,7 +4,7 @@ tags:
   - Windows
   - Docker
 categories:
-  - 运维手册
+  - 容器化
 cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504201217301.png'
 toc: true
 abbrlink: 4fbcc9bd

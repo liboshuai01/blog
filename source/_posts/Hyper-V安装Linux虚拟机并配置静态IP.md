@@ -5,7 +5,7 @@ tags:
   - Hyper-V
   - 虚拟机
 categories:
-  - 环境搭建
+  - 运维手册
 cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504130209784.png'
 toc: true
 abbrlink: 64cc72c6

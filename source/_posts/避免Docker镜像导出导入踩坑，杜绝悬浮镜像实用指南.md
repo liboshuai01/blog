@@ -5,7 +5,7 @@ tags:
   - Centos
   - Docker
 categories:
-  - 运维手册
+  - 容器化
 cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504240019254.png'
 toc: true
 abbrlink: 61dba0f

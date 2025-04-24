@@ -7,7 +7,7 @@ tags:
   - Centos
   - Docker
 categories:
-  - 环境搭建
+  - 容器化
 cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250422182310000.png'
 toc: true
 ---
