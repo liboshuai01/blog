@@ -9,7 +9,7 @@ categories:
 cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250425103751734.png'
 toc: true
 abbrlink: ae73bd3a
-date: 2025-04-25 10:37:02
+date: 2024-03-29 10:37:02
 ---
 
 本文详细介绍如何利用 Helm 在 Kubernetes（K8s）集群中部署一个基于 Redis 3 主 3 从架构的高可用分布式缓存集群。部署过程依赖 Kubernetes 集群和 Helm 工具，且预设已配置基于 NFS 的 StorageClass 用于持久化存储。
