@@ -292,7 +292,7 @@ mv /home/lbs/software/apache-doris-2.1.6-bin-x64 /home/lbs/software/doris
    | http://10.0.0.87:8130 (http://fe_hostname:fe_http_port) | root | 空   |
 
 
-    ![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d219e558279547ed819213b1a6242330~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=3024&h=1888&s=573408&e=png&b=fbfbfb)
+    ![](https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504260115243.png)
 
 ## 集群管理
 

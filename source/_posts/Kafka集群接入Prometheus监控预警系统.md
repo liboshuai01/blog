@@ -88,7 +88,7 @@ date: 2024-04-24 14:25:23
 3. 验证`prometheus`中是否可以查看到`kafka`相关的信息
 
 
-    ![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6c570dfc3f16455e80ff010ed674c54e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=3024&h=1888&s=369242&e=png&b=1c1f23)
+    ![](https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504260116534.png)
 
 ## 配置`Grafana`
 

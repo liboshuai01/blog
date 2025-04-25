@@ -278,11 +278,11 @@ CMD java ${JAVA_OPTS} -jar app.jar $ARGS
    ![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250425105652269.png)
 
 
-    ![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c3a535e4463f4b82acd4f8dee1980216~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=3024&h=1888&s=426020&e=png&b=ffffff)
+    ![](https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504260116680.png)
     
-    ![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9c919db10e6b4414869e2b795451a108~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=3024&h=1888&s=365542&e=png&b=ffffff)
+    ![](https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504260116287.png)
     
-    ![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1d6f965fabc544b5a5c750f657a51c13~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=3024&h=1888&s=366451&e=png&b=ffffff)
+    ![](https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504260117426.png)
 
 ### 配置Publish over SSH
 

@@ -102,7 +102,7 @@ date: 2024-05-17 15:00:49
     > 3. `D:\APerson\Software\apache-jmeter-5.6.3\report\02-log.log` 为测试日志生成路径（文件目录不存在会自动创建）
 
 
-    ![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e89a787a823146c2b7554ebaa006dd61~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1920&h=1078&s=132402&e=png&b=0d0d0d)
+    ![](https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504260116446.png)
 
 ## `Centos`步骤
 
