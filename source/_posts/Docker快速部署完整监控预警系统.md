@@ -5,7 +5,7 @@ tags:
   - Docker
   - Prometheus
 categories:
-  - 环境搭建
+  - 监控预警
 cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250425141920379.png'
 toc: true
 abbrlink: e352145d
