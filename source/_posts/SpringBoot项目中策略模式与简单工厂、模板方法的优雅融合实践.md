@@ -16,6 +16,8 @@ date: 2022-01-08 17:25:08
 
 本文围绕一个真实的“数据导出”需求展开，介绍如何将策略模式、简单工厂模式和模板方法模式结合应用于 Spring Boot 项目中，形成优雅且易维护的解决方案。
 
+<!-- more -->
+
 > 源码地址：[gitee（springboot-example）](https://gitee.com/liboshuai01/springboot-example.git) 的 `strategy` 分支
 
 ## 需求背景
