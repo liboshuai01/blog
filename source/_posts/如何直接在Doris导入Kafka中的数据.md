@@ -1,8 +1,14 @@
 ---
 title: 如何直接在Doris导入Kafka中的数据
 abbrlink: 98250a3
-date: 2025-04-26 01:22:13
+date: 2024-05-19 01:22:13
 tags:
+  - Doris
+  - Kafka
+categories:
+  - 大数据
+cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504260125214.png'
+toc: true
 ---
 
 在现代大数据架构中，Kafka作为分布式消息系统广泛应用于流式数据传输，而Doris作为高性能的MPP数据库，支持实时数据分析与查询。本文将详细介绍如何利用Doris的Routine Load功能，直接从Kafka导入数据，实现实时数据同步，涵盖CSV和JSON格式的数据导入，并提供相关操作指令及调优建议。
