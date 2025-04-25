@@ -1,11 +1,11 @@
 ---
 title: Flink应用接入Prometheus监控预警系统
 tags:
-  - Linux
-  - Kafka
-  - Prometheus
+   - Linux
+   - Kafka
+   - Prometheus
 categories:
-  - 监控预警
+   - 监控预警
 cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250425143129514.png'
 toc: true
 abbrlink: 9585b017
@@ -93,27 +93,27 @@ date: 2024-04-28 14:35:01
             - targets: ["10.0.0.87:9091"]
     ```
 
-   ![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/77720b53b6c3451c8209f46d8c151d6b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=291&h=63&s=4885&e=png&b=191919)
+   ![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504260109939.png)
 
 2. 重启`prometheus`服务
    > 也可以采用热加载配置文件的方式：`curl  -XPOST localhost:9090/-/reload
-`
+   > `
 
 3. 验证`prometheus`中是否可以查看到`flink`相关的信息
 
-   ![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/586d1fb044f940fb8a62b3d1a2bbff54~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=3024&h=1888&s=365165&e=png&b=ffffff)
+   ![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504260109083.png)
 
 ## 配置`Grafana`
 
 > 面板ID为: `14911`
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9251ffe913e541139330d7506fa2e6bd~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=3024&h=1888&s=780437&e=png&b=1b1c21)
+![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504260109980.png)
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b29f1c78368f4881bd3bb89c2c010aa9~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=3024&h=1888&s=300693&e=png&b=16171c)
+![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504260109034.png)
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/72a5d6b839dc445ebdc8715e96ce3425~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=3024&h=1888&s=408283&e=png&b=17181d)
+![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504260109063.png)
 
-![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c8847d363b194dd787b17c7bb563fd3e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=3024&h=1888&s=508826&e=png&b=17191d)
+![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504260109162.png)
 
 > 注意：想要看到图表及数据，需要至少运行一个 flink 任务
 

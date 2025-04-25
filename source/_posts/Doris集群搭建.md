@@ -1,10 +1,10 @@
 ---
 title: Doris集群搭建
 tags:
-  - Linux
-  - Doris
+   - Linux
+   - Doris
 categories:
-  - 环境搭建
+   - 环境搭建
 cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250409145732836.png'
 toc: true
 abbrlink: 1c0d9a3d
@@ -71,11 +71,11 @@ date: 2023-10-12 23:11:00
 > 2. 命令中出现的IP，均需要替换为自己集群中的IP【必须】
 > 3. 命令中出现的`/home/lbs/software`路径，可选择替换为自定义路径【可选】
 
-| hostname | IP | 角色 |
-| --- | --- | --- |
-| master | 10.0.0.87 | FE（LEADER）+ BE + BROKER |
-| node1 | 10.0.0.81 | FE（FOLLOWER）+ BE + BROKER |
-| node2 | 10.0.0.82 | FE（FOLLOWER）+ BE + BROKER |
+| hostname | IP        | 角色                        |
+| -------- | --------- | --------------------------- |
+| master   | 10.0.0.87 | FE（LEADER）+ BE + BROKER   |
+| node1    | 10.0.0.81 | FE（FOLLOWER）+ BE + BROKER |
+| node2    | 10.0.0.82 | FE（FOLLOWER）+ BE + BROKER |
 
 
 ## 正式安装
@@ -97,7 +97,7 @@ mv /home/lbs/software/apache-doris-2.1.6-bin-x64 /home/lbs/software/doris
     rpc_port = 9120
     query_port = 9130
     edit_log_port = 9110
-
+    
     # 绑定集群ip网段
     priority_networks = 10.0.0.0/24
     ```
@@ -117,7 +117,7 @@ mv /home/lbs/software/apache-doris-2.1.6-bin-x64 /home/lbs/software/doris
     webserver_port = 8140
     heartbeat_service_port = 9150
     brpc_port = 8160
-
+    
     # 绑定集群ip网段
     priority_networks = 10.0.0.0/24
     
@@ -156,7 +156,7 @@ mv /home/lbs/software/apache-doris-2.1.6-bin-x64 /home/lbs/software/doris
    # 查看 Doris 进程
    ps -ef | grep doris
    ```
-   ![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6bc729bc58a4495498d5d25efe85ab05~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1894&h=68&s=41611&e=png&b=101419)
+   ![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504260112858.png)
 
 2. 再分别登录到`node1`与`node2`两个机器执行下面命令，用于分别启动 FE 作为两个 FOLLOWER，并查看`doris`进程
    > 注意：
@@ -173,9 +173,9 @@ mv /home/lbs/software/apache-doris-2.1.6-bin-x64 /home/lbs/software/doris
     ps -ef | grep doris
     ```
 
-   ![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/59f8c117ce934328816eef32c08e1fdb~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1885&h=68&s=42202&e=png&b=101419)
+   ![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504260112861.png)
 
-   ![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b7ba38e0836d4f509f80dac04eab6c36~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1890&h=70&s=42493&e=png&b=101419)
+   ![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504260112846.png)
 
 3. 回到`master`机器，安装`mysql`客户端
     ```shell
@@ -212,9 +212,9 @@ mv /home/lbs/software/apache-doris-2.1.6-bin-x64 /home/lbs/software/doris
     ps -ef | grep doris
     ```
 
-   ![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/421b5a1bdb64493da10a690ece3a3c08~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1889&h=82&s=48143&e=png&b=101419)
-   ![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d4f4bf90e1894b469f15c4d288b4bbe7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1890&h=86&s=50226&e=png&b=101419)
-   ![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/03e2f81ec0a84dd38cddbf66a46b0de3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1887&h=82&s=49182&e=png&b=101419)
+   ![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504260112849.png)
+   ![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504260112841.png)
+   ![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504260112853.png)
 
 2. 添加集群中的三台机器上的`BE`到`FE`的`MySQL`数据库中。
     ```
@@ -225,7 +225,7 @@ mv /home/lbs/software/apache-doris-2.1.6-bin-x64 /home/lbs/software/doris
     ALTER SYSTEM ADD BACKEND "10.0.0.87:9150";
     ALTER SYSTEM ADD BACKEND "10.0.0.81:9150";
     ALTER SYSTEM ADD BACKEND "10.0.0.82:9150";
-
+      
     # 查看状态（需要多等待一会儿，直到Alive列值都为true）
     SHOW PROC '/backends';
     ```
@@ -246,9 +246,9 @@ mv /home/lbs/software/apache-doris-2.1.6-bin-x64 /home/lbs/software/doris
     # 查看 Doris 进程
     ps -ef | grep doris
     ```
-   ![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b31e566c9c3f4b5daab50947a3bf2b45~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1889&h=100&s=59139&e=png&b=101419)
-   ![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d0bed7123dbe41c1a4d91f23af866e27~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1880&h=104&s=61299&e=png&b=101419)
-   ![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7eefc6aa5f924a97a4d5f959034d02ff~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1887&h=96&s=58898&e=png&b=101419)
+   ![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504260112132.png)
+   ![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504260112138.png)
+   ![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504260112154.png)
 
 2. 同时添加集群中的三台机器上的`BROKER`到`FE`的`MySQL`数据库中。
     ```
@@ -274,22 +274,22 @@ mv /home/lbs/software/apache-doris-2.1.6-bin-x64 /home/lbs/software/doris
     ```shell
     # 登录到FE的数据库
     mysql -h 10.0.0.87 -P 9130 -uroot
-
+    
     # 查看集群中所有的FE节点状态
     SHOW PROC '/frontends';
-
+    
     # 查看集群中所有的BE节点状态
     SHOW PROC '/backends';
-
+    
     # 查看集群中所有的BROKER节点状态
     SHOW PROC "/brokers";
     ```
 
 2. 浏览器输入下面的地址、账号，进入`Doris`的`Web`页面。
 
-   | 地址 | 账号 | 密码 |
-          | --- | --- | --- |
-   | http://10.0.0.87:8130 (http://fe_hostname:fe_http_port) | root | 空 |
+   | 地址                                                    | 账号 | 密码 |
+      | ------------------------------------------------------- | ---- | ---- |
+   | http://10.0.0.87:8130 (http://fe_hostname:fe_http_port) | root | 空   |
 
 
     ![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d219e558279547ed819213b1a6242330~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=3024&h=1888&s=573408&e=png&b=fbfbfb)

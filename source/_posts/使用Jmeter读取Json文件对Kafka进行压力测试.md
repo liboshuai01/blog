@@ -26,72 +26,72 @@ date: 2024-05-17 15:00:49
 
 2. [# 下载 di-kafkameter](https://github.com/rollno748/di-kafkameter/releases/download/1.0/di-kafkameter-1.0.jar) 到`Jmeter`根目录下的`lib\ext`目录下
 
-	![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250425150010406.png)
+   ![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504260110331.png)
 
 3. 进入到`Jmeter`根目录下的`bin`目录下，双击`jmeter.bat`，进入到`GUI`界面
 
-   ![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250425145838833.png)
+   ![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504260110288.png)
 
-   ![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250425145838923.png)
+   ![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504260110302.png)
 
 4. 设置为中文
 
-   ![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250425145838865.png)
+   ![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504260110324.png)
 
 5. 新增并配置线程组，线程数设置为`100`，永远循环
 
-   ![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250425145838930.png)
+   ![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504260110296.png)
 
-   ![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250425145839936.png)
+   ![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504260110316.png)
 
 6. 新增并配置`Constant Throughput Timer`，用于控制并发吞吐量一分钟执行18万次，即3000TPS
 
-   ![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250425145838911.png)
+   ![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504260110589.png)
 
-   ![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250425145840735.png)
+   ![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504260110597.png)
 
 7. 新增并配置`CSV Data Set Config`，用于读取`Json`文件
 
-   ![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250425145840988.png)
+   ![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504260110636.png)
 
-   ![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250425145841173.png)
+   ![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504260110654.png)
 
-   ![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250425145841116.png)
+   ![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504260110659.png)
 
 8. 新增并配置`KafkaProducerConfig`，用于配置`Kafka`集群的信息
 
-   ![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250425145841180.png)
+   ![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504260110692.png)
 
-   ![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250425145842762.png)
+   ![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504260110879.png)
 
 9. 新增并配置`Kafka`生产者取样器，用于向`Kafka`推送消息
 
-   ![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250425145841669.png)
+   ![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504260110919.png)
 
-   ![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250425145842537.png)
+   ![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504260110911.png)
    > 此处的`${data}`，即为前面步骤7中配置的变量。
 
 10. 新增并配置`查看结果树`，用于测试时查看结果
 
-    ![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250425145842712.png)
+    ![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504260110934.png)
 
-    ![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250425145842794.png)
+    ![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504260110972.png)
 
 11. 点击运行，并保存配置文件到指定路径
 
-    ![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250425145843043.png)
+    ![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504260110988.png)
 
 12. 查看压力测试情况
 
-    ![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250425145843092.png)
+    ![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504260110180.png)
 
-    ![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250425145843482.png)
+    ![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504260110230.png)
 
 13. 停止压测，并关闭GUI页面，以便使用命令行进行压测（GUI界面会影响压测的性能）
 
 14. 配置`Jmeter`到系统环境变量中
 
-    ![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250425145843828.png)
+    ![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504260110240.png)
 
 15. 打开终端，使用命令行进行压测
     ```bat

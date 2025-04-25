@@ -50,27 +50,27 @@ date: 2024-04-28 14:32:30
               group: be
     ```
 
-   ![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b8b5895e7e2d4c3da01f0fad6de77fa9~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=522&h=116&s=11060&e=png&b=191919)
+   ![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504260111724.png)
 
 2. 重启`prometheus`服务
    > 也可以采用热加载配置文件的方式：`curl  -XPOST localhost:9090/-/reload
-`
+   > `
 
 3. 验证`prometheus`中是否可以查看到`doris`相关的信息
 
-   ![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3515364b3d424438b2aa048598406afe~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=3024&h=1888&s=373532&e=png&b=ffffff)
+   ![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504260111796.png)
 
 ## 配置`Grafana`
 
 > 面板ID为: `9734`
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a4bb7d7659a940df9526cb90484fe252~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=3024&h=1888&s=347202&e=png&b=16171c)
+![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504260111826.png)
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/829b0455a6da4ad187cf425d1b8856cc~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=3024&h=1888&s=303289&e=png&b=16171c)
+![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504260111785.png)
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1a1b2e35514a4beba21d4cb309729000~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=3024&h=1888&s=396882&e=png&b=17181d)
+![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504260111810.png)
 
-![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/446a6105df594a908ac5dd463f23e37c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=3024&h=1888&s=501567&e=png&b=181a1e)
+![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504260111864.png)
 
 ## 结语
 

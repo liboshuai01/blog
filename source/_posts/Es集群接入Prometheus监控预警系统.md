@@ -1,11 +1,11 @@
 ---
 title: Es集群接入Prometheus监控预警系统
 tags:
-  - Linux
-  - Kafka
-  - Prometheus
+   - Linux
+   - Kafka
+   - Prometheus
 categories:
-  - 监控预警
+   - 监控预警
 cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250425143129514.png'
 toc: true
 abbrlink: d6995e86
@@ -69,25 +69,25 @@ date: 2024-04-28 14:30:23
             - '10.0.0.87:9114'
     ```
 
-   ![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0bc748fb1e7f47c59ede796e2e6b5b43~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=693&h=691&s=83158&e=png&b=191919)
+   ![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504260111352.png)
 
 2. 重启`prometheus`服务
    > 也可以采用热加载配置文件的方式：`curl  -XPOST localhost:9090/-/reload
-`
+   > `
 
 3. 验证`prometheus`中是否可以查看到`elasticsearch`相关的信息
 
-   ![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b4a600ffa0c346309b980ca5b25a91bb~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=3024&h=1888&s=340868&e=png&b=ffffff)
+   ![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504260111387.png)
 
 ## 配置`Grafana`
 
 > 面板ID为: `2322`
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e1426d8f30d5425f8471669a61d18dc3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=3024&h=1888&s=334078&e=png&b=15171a)
+![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504260111339.png)
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/47b078225a6b49c99ab654a0b67581cc~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=3024&h=1888&s=385290&e=png&b=16181b)
+![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504260111371.png)
 
-![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3541f4fb3f534782a879f82599993e8c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=3024&h=1888&s=459466&e=png&b=121316)
+![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504260111421.png)
 
 
 ## 结语

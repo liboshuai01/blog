@@ -1,11 +1,11 @@
 ---
 title: Kafka集群接入Prometheus监控预警系统
 tags:
-  - Linux
-  - Kafka
-  - Prometheus
+   - Linux
+   - Kafka
+   - Prometheus
 categories:
-  - 监控预警
+   - 监控预警
 cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250425142636317.png'
 toc: true
 abbrlink: d83294c3
@@ -79,11 +79,11 @@ date: 2024-04-24 14:25:23
             - targets: ["10.0.0.87:9308"]
     ```
 
-   ![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250425142450057.png)
+   ![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504260112942.png)
 
 2. 重启`prometheus`服务
    > 也可以采用热加载配置文件的方式：`curl  -XPOST localhost:9090/-/reload
-    > `
+   > `
 
 3. 验证`prometheus`中是否可以查看到`kafka`相关的信息
 
@@ -94,11 +94,11 @@ date: 2024-04-24 14:25:23
 
 > 面板ID号为: `7589`
 
-![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250425142450164.png)
+![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504260112996.png)
 
-![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250425142450194.png)
+![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504260112983.png)
 
-![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250425142450180.png)
+![image.png](https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504260112967.png)
 
 
 > 如果面板中没有数据图表展示，则很可能是因为`kafka`集群中没有数据被消费，没有产生消费偏移量。需要往`kafka`中多发送一些数据，并进行消费一段时间即可。
