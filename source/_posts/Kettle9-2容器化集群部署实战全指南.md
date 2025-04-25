@@ -4,8 +4,9 @@ tags:
   - Linux
   - Kettle
   - Docker
+  - Etl
 categories:
-  - 容器化
+  - 大数据
 cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504260135938.png'
 toc: true
 abbrlink: c9f07f4a
