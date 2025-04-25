@@ -10,7 +10,7 @@ categories:
 cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250425105925772.png'
 toc: true
 abbrlink: 8b4c4312
-date: 2025-04-25 10:57:37
+date: 2024-04-16 10:57:37
 ---
 
 本文最终实现的效果是：只需要在idea中提交代码到git远程仓库后，登陆Jenkins点一下“立即构建”，即可可自动触发CI/CD流水线进行自动部署项目。
