@@ -3,6 +3,7 @@ title: CentOS7与RockyLinux系统时间同步指南
 tags:
   - Linux
   - Centos
+  - RockyLinux
 categories:
   - 运维手册
 cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250425110909439.png'
