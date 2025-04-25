@@ -9,7 +9,7 @@ categories:
 cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250425141343106.png'
 toc: true
 abbrlink: af0f2a22
-date: 2025-04-25 14:12:25
+date: 2024-04-22 14:12:25
 ---
 
 MySQL 的二进制日志（binlog）用于记录数据库的所有更改操作，是主从复制和数据恢复的重要机制。但在某些场景下，比如不需要复制或想减轻系统负担时，可以选择关闭 binlog 功能。本文针对 CentOS 操作系统上的 MySQL 8.0 及以上版本，详细说明如何关闭二进制日志，并介绍相关注意事项。
