@@ -5,7 +5,7 @@ tags:
   - Idea
 categories:
   - 杂货小铺
-cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504191621019.png'
+cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504261827612.png'
 toc: true
 abbrlink: 1bde3488
 date: 2024-11-06 12:11:37
