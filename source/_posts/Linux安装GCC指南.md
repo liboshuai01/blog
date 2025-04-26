@@ -5,7 +5,7 @@ tags:
   - GCC
 categories:
   - 运维手册
-cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504200009167.png'
+cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504270010957.png'
 toc: true
 abbrlink: c6d2456d
 date: 2023-12-08 00:05:55
