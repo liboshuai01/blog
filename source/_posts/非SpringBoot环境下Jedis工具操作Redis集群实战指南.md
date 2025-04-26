@@ -1,5 +1,5 @@
 ---
-title: 非SpringBoot环境下Jedis集群操作Redis实战指南
+title: 非SpringBoot环境下Jedis工具操作Redis集群实战指南
 tags:
   - Java
   - SpringBoot
