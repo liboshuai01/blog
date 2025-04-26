@@ -4,7 +4,7 @@ tags:
   - Maven
   - Idea
 categories:
-  - 运维手册
+  - 杂货小铺
 cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504260154739.png'
 toc: true
 abbrlink: d1177471
