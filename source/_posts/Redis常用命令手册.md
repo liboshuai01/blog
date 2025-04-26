@@ -1,5 +1,5 @@
 ---
-title: Redis常用命令一篇速览
+title: Redis常用命令手册
 abbrlink: '92429955'
 date: 2024-08-27 10:59:15
 tags:
