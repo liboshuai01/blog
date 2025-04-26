@@ -6,7 +6,7 @@ tags:
   - Shiro
 categories:
   - Java
-cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250422142718117.png'
+cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504261140143.png'
 toc: true
 abbrlink: af5fe467
 date: 2022-01-08 17:25:08
