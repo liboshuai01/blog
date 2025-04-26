@@ -4,7 +4,7 @@ tags:
   - Java
 categories:
   - Java
-cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504261030763.png'
+cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504270008533.png'
 toc: true
 abbrlink: d87c6abc
 date: 2024-08-19 10:32:14
