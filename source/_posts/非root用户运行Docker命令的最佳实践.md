@@ -9,7 +9,7 @@ categories:
 cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504232345973.png'
 toc: true
 abbrlink: 128954f4
-date: 2021-12-07 23:43:18
+date: 2022-12-07 23:43:18
 ---
 
 在企业环境中，为了保证系统安全和权限的合理分配，通常不允许直接使用 root 用户执行 Docker 命令。本文将介绍如何配置普通用户，使其能够无须 root 权限便可执行 Docker 命令，从而提升安全性和操作便捷性。

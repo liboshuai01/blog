@@ -9,7 +9,7 @@ categories:
 cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504240019254.png'
 toc: true
 abbrlink: 61dba0f
-date: 2021-12-11 00:17:52
+date: 2022-12-11 00:17:52
 ---
 
 在日常开发和运维中，我们经常需要将 Docker 镜像导出为文件、在其他环境导入使用。常用的命令是：
