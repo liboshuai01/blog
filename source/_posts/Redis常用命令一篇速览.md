@@ -6,7 +6,7 @@ tags:
   - Redis
 categories:
   - 大数据
-cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504130247633.png'
+cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504261101845.png'
 toc: true
 ---
 
