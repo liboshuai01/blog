@@ -11,7 +11,9 @@ abbrlink: e3673e0e
 date: 2024-04-15 10:43:17                                                                                                                                                               
 ---
 
-在自建 Kubernetes 集群时，为实现持久化存储，NFS 是一种常见且稳定的选择。为了方便管理和自动化动态存储，NFS Client Provisioner（即 nfs-client-provisioner）成为了社区推荐的解决方案。本文将详细介绍如何在 Kubernetes 集群中通过 Helm 部署 nfs-client-provisioner，并演示其基本使用方法。
+在自建 Kubernetes 集群时，为实现持久化存储，NFS 是一种常见且稳定的选择。为了方便管理和自动化动态存储，NFS Client
+Provisioner（即 nfs-client-provisioner）成为了社区推荐的解决方案。本文将详细介绍如何在 Kubernetes 集群中通过 Helm 部署
+nfs-client-provisioner，并演示其基本使用方法。
 
 <!-- more -->
 
@@ -19,11 +21,11 @@ date: 2024-04-15 10:43:17
 
 本示例基于三台华为软开云 ECS 服务器，操作系统为 CentOS Linux 7.6。集群组成如下：
 
-| 主机名   | IP             | 角色   |
-| -------- | -------------- | ------ |
-| mldong01 | 192.168.0.245  | master |
-| mldong02 | 192.168.0.54   | node01 |
-| mldong03 | 192.168.0.22   | node02 |
+| 主机名        | IP     | 角色     |
+|------------|--------|--------|
+| k8s-master | master | master |
+| k8s-node1  | node1  | node01 |
+| k8s-node2  | node2  | node02 |
 
 ## 安装前准备工作
 
@@ -37,7 +39,7 @@ yum install -y nfs-utils
 
 ### 搭建 NFS 服务器
 
-本示例选择 `mldong01` 作为 NFS 服务端节点，进行如下配置：
+本示例选择 `k8s-master` 作为 NFS 服务端节点，进行如下配置：
 
 #### 安装 rpcbind 服务
 
@@ -52,7 +54,7 @@ systemctl start rpcbind
 #### 创建共享目录
 
 ```bash
-mkdir -p /mnt/nfs
+mkdir -p /data/nfs
 ```
 
 #### 配置导出目录
@@ -60,13 +62,8 @@ mkdir -p /mnt/nfs
 编辑 `/etc/exports` 文件，添加共享目录与客户端权限：
 
 ```bash
-/mnt/nfs 192.168.0.0/24(rw,sync,fsid=0)
+/data/nfs *(insecure,rw,sync,no_root_squash)
 ```
-
-- `192.168.0.0/24` 表示允许同网段内的客户端访问
-- `rw` 允许读写访问
-- `sync` 表示同步写入，确保数据一致性
-- `fsid=0` 将此目录作为 NFS 根目录
 
 #### 启动 NFS 服务并设置开机自启
 
@@ -88,21 +85,23 @@ exportfs
 
 ### 验证 NFS 挂载
 
-在任意工作节点（如 `mldong02`）测试挂载：
+在任意工作节点（如 `k8s-node1`）测试挂载：
 
 ```bash
-mkdir -p /mnt/nfs
-mount -t nfs 192.168.0.245:/mnt/nfs /mnt/nfs
-df -h | grep /mnt/nfs
+mkdir -p /data/nfs
+mount -t nfs master:/data/nfs /data/nfs
+df -h | grep /data/nfs
 ```
 
 可在服务器端创建文件，客户端查看是否同步。完成验证后可根据需求卸载：
 
 ```bash
-umount /mnt/nfs
+umount /data/nfs
 ```
 
-## 使用 Helm 安装 NFS Client Provisioner
+## 使用 Helm 安装 NFS Client Provisioner（旧版）
+
+> `nfs-client-provisioner` 已经过时并被官方淘汰，现由 Kubernetes SIGs 维护的新项目 `nfs-subdir-external-provisioner`继任，提供更好的维护支持和功能。
 
 ### 添加 Helm 仓库
 
@@ -123,8 +122,8 @@ helm search repo nfs-client-provisioner
 
 ```bash
 helm install nfs-storage azure/nfs-client-provisioner \
-  --set nfs.server=192.168.0.245 \
-  --set nfs.path=/mnt/nfs \
+  --set nfs.server=master \
+  --set nfs.path=/data/nfs \
   --set storageClass.name=nfs-storage \
   --set storageClass.defaultClass=true \
   --set rbac.create=true \
@@ -138,15 +137,91 @@ helm install nfs-storage azure/nfs-client-provisioner \
 - `rbac.create`：自动创建 RBAC 资源，需设置为 `true`
 - `namespace`：建议安装在 `kube-system` 命名空间，便于管理
 
-### 验证 StorageClass
+### 设置默认 StorageClass 注意事项
 
-安装成功后，查看当前存储类：
+在通过 `--set storageClass.defaultClass=true` 将 `nfs-storage` 设置为默认 StorageClass 后，需确保 Kubernetes 集群中不会有多个
+StorageClass 被标记为默认，否则会引发 PVC 动态绑定冲突。
+
+**例如，常见的本地存储插件 `local-path` 默认也通常是默认 StorageClass**，需要把它的默认标识取消：
+
+```bash
+kubectl patch storageclass local-path \
+  -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"false"}}}'
+```
+
+执行后可以确认：
 
 ```bash
 kubectl get storageclass
 ```
 
-您将看到 `nfs-storage` 已成为默认存储类。
+此时 `nfs-storage` 应该是唯一带有 `(default)` 标识的存储类。
+
+这样做确保：
+
+- 新建 PVC 如果没有特别指定 `storageClassName`，会默认使用 `nfs-storage`。
+- 避免多个存储类同时为默认，导致 PVC 动态供给异常。
+
+## 使用 Helm 安装 nfs-subdir-external-provisioner（新版）
+
+**注意：**
+`nfs-client-provisioner` 已经过时并被官方淘汰，现由 Kubernetes SIGs 维护的新项目 `nfs-subdir-external-provisioner`
+继任，提供更好的维护支持和功能。
+
+### 添加 Helm 仓库
+
+```bash
+helm repo add nfs-subdir-external-provisioner https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner/
+helm repo update
+```
+
+### 安装 nfs-subdir-external-provisioner
+
+示例如下，请将 `nfs.server` 和 `nfs.path` 替换为自己的 NFS 服务器地址和共享目录：
+
+```bash
+helm install nfs-subdir-external-provisioner nfs-subdir-external-provisioner/nfs-subdir-external-provisioner \
+  --set nfs.server=master \
+  --set nfs.path=/data/nfs \
+  --set storageClass.name=nfs-storage \
+  --set storageClass.defaultClass=true \
+  --set rbac.create=true \
+  --namespace kube-system
+```
+
+参数说明与之前类似：
+
+- `nfs.server`：NFS 服务器地址（IP 或主机名）
+- `nfs.path`：NFS 共享目录路径
+- `storageClass.name`：自定义存储类名称
+- `storageClass.defaultClass`：是否设置为默认存储类
+- `rbac.create`：是否创建所需的 RBAC 权限
+- `namespace`：推荐安装在 `kube-system` 命名空间
+
+### 设置默认 StorageClass 注意事项
+
+在通过 `--set storageClass.defaultClass=true` 将 `nfs-storage` 设置为默认 StorageClass 后，需确保 Kubernetes 集群中不会有多个
+StorageClass 被标记为默认，否则会引发 PVC 动态绑定冲突。
+
+**例如，常见的本地存储插件 `local-path` 默认也通常是默认 StorageClass**，需要把它的默认标识取消：
+
+```bash
+kubectl patch storageclass local-path \
+  -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"false"}}}'
+```
+
+执行后可以确认：
+
+```bash
+kubectl get storageclass
+```
+
+此时 `nfs-storage` 应该是唯一带有 `(default)` 标识的存储类。
+
+这样做确保：
+
+- 新建 PVC 如果没有特别指定 `storageClassName`，会默认使用 `nfs-storage`。
+- 避免多个存储类同时为默认，导致 PVC 动态供给异常。
 
 ## 创建与使用 PersistentVolumeClaim
 
@@ -192,14 +267,14 @@ kubectl get pvc pvc-test
 - 若日志显示 `permission denied`，请确认 NFS 共享目录权限，推荐使用：
 
   ```bash
-  chmod 777 -R /mnt/nfs/k8s
+  chmod 777 -R /data/nfs/k8s
   ```
 
   此权限设置使 Kubernetes 集群中运行的 Pod 能顺利访问 NFS 目录。
 
 ### 检查 NFS 服务器存储目录
 
-NFS 服务器 `/mnt/nfs/k8s` 目录将会自动创建对应 PVC 的存储文件夹，文件夹名称格式为：
+NFS 服务器 `/data/nfs/k8s` 目录将会自动创建对应 PVC 的存储文件夹，文件夹名称格式为：
 
 ```
 <namespace>-<pvc名称>-<pvc UID>-<随机字符串>
@@ -262,6 +337,8 @@ helm uninstall nfs-storage -n kube-system
 
 ## 总结
 
-通过上述步骤，您能够在 Kubernetes 集群中使用 Helm 快速部署 nfs-client-provisioner，实现动态、共享的持久化存储。需要特别注意的是，NFS 服务器端除了安装 `nfs-utils`，还必须安装并启动 `rpcbind` 服务，否则 NFS 服务无法正常工作。此方案适合多节点访问共享文件系统场景。后续若有更复杂 NFS 存储策略管理或权限控制，需要结合具体业务需求做进一步配置和优化。
+通过上述步骤，您能够在 Kubernetes 集群中使用 Helm 快速部署 nfs-client-provisioner，实现动态、共享的持久化存储。需要特别注意的是，NFS
+服务器端除了安装 `nfs-utils`，还必须安装并启动 `rpcbind` 服务，否则 NFS 服务无法正常工作。此方案适合多节点访问共享文件系统场景。后续若有更复杂
+NFS 存储策略管理或权限控制，需要结合具体业务需求做进一步配置和优化。
 
 本文提供了部署的基础思路及示例配置，希望对 Kubernetes 持久化存储实践有所帮助。欢迎在实际环境里根据自己的需求进行扩展和深入学习。
