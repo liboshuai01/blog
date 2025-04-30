@@ -11,9 +11,8 @@ abbrlink: e3673e0e
 date: 2025-04-29 10:43:17                                                                                                                                                               
 ---
 
-在自建 Kubernetes 集群时，为实现持久化存储，NFS 是一种常见且稳定的选择。为了方便管理和自动化动态存储，NFS Client
-Provisioner（即 nfs-client-provisioner）成为了社区推荐的解决方案。本文将详细介绍如何在 Kubernetes 集群中通过 Helm 部署
-nfs-client-provisioner，并演示其基本使用方法。
+在自建 Kubernetes 集群时，为实现持久化存储，NFS 是一种常见且稳定的选择。为了方便管理和自动化动态存储，NFS Client Provisioner（即 nfs-client-provisioner）成为了社区推荐的解决方案。
+本文将详细介绍如何在 Kubernetes 集群中通过 Helm 部署 nfs-client-provisioner，并演示其基本使用方法。
 
 <!-- more -->
 
