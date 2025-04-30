@@ -8,7 +8,7 @@ categories:
 cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250425104445050.png'
 toc: true
 abbrlink: e3673e0e
-date: 2024-04-15 10:43:17                                                                                                                                                               
+date: 2025-04-29 10:43:17                                                                                                                                                               
 ---
 
 在自建 Kubernetes 集群时，为实现持久化存储，NFS 是一种常见且稳定的选择。为了方便管理和自动化动态存储，NFS Client
@@ -19,7 +19,7 @@ nfs-client-provisioner，并演示其基本使用方法。
 
 ## 环境信息
 
-本示例基于三台华为软开云 ECS 服务器，操作系统为 CentOS Linux 7.6。集群组成如下：
+> 笔者系统环境为: RockyLinux 8.10
 
 | 主机名        | IP     | 角色     |
 |------------|--------|--------|
