@@ -143,7 +143,7 @@ for i in master node1 node2; do
         echo "--> execute command "$cmd""
 
         # 通过 SSH 执行命令
-        if ssh ${user}@${i} "source /etc/profile; $cmd"; then
+        if ssh ${user}@${i} "source ~/.bash_profile; $cmd"; then
             echo "Command executed successfully on $i"
         else
             echo "Failed to execute command on $i"
