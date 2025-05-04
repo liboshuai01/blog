@@ -86,8 +86,9 @@ Frp（Fast Reverse Proxy）是一款高性能的内网穿透工具，广泛应�
    sudo tee /etc/systemd/system/frps.service  <<'EOF'
    [Unit]
    Description=Frps Service
-   After = network.target syslog.target
-   Wants = network.target
+   Wants=network-online.target
+   After=network.target network-online.target
+   Requires=network-online.target
    
    [Service]
    Type=simple
@@ -189,8 +190,9 @@ Frp（Fast Reverse Proxy）是一款高性能的内网穿透工具，广泛应�
    sudo tee /etc/systemd/system/frpc.service  <<'EOF'
    [Unit]
    Description=Frpc Service
-   After = network.target syslog.target
-   Wants = network.target
+   Wants=network-online.target
+   After=network.target network-online.target
+   Requires=network-online.target
    
    [Service]
    Type=simple
