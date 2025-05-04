@@ -1,6 +1,5 @@
 ---
 title: Rocky Linux 8.10 内核升级实战：拥抱 Linux 6.1 LTS
-date: 2025-05-05 00:22:35
 tags:
   - Linux
   - Rocky Linux
@@ -8,6 +7,8 @@ categories:
   - 运维手册
 cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/202505050026782.png'
 toc: true
+abbrlink: fced2319
+date: 2025-05-05 00:22:35
 ---
 
 ## 前言
@@ -25,6 +26,8 @@ Linux Kernel 6.1 是一个重要的 **长期支持 (LTS)** 版本，提供了许
 1.  **备份您的重要数据！**
 2.  **如果可能，在非生产环境或虚拟机中进行测试。**
 3.  **确保您了解如何通过 GRUB 引导加载程序选择旧内核启动，以备不时之需。**
+
+<!-- more -->
 
 ## 环境准备
 
