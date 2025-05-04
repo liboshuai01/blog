@@ -10,7 +10,7 @@ categories:
 cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/202505042344955.png'
 toc: true
 abbrlink: ef27da93
-date: 2025-05-04 23:44:13
+date: 2025-05-05 01:24:11
 ---
 
 作为一名开发者，你是否经常遇到这样的痛点：家里的开发测试环境（如虚拟机集群、NAS）资源丰富，但一旦离开家（比如去公司或出差），就无法访问这些宝贵的内网资源？本文将详细介绍如何利用现代
