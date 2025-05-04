@@ -39,6 +39,8 @@ K3s 是一个由 Rancher Labs 推出的轻量级 Kubernetes 发行版，专为�
 部署步骤
 ---
 
+> 注意：下面所有操作步骤均使用`root`用户执行。
+
 1. 分别在`master`、`node1`、`node2`节点执行下面命令，关闭防火墙。
 
     ```shell
