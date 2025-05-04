@@ -1,12 +1,13 @@
 ---
 title: 解决 Docker 容器网络问题：加载 ip_tables 和 iptable_nat 内核模块
-date: 2025-05-05 00:40:00
 tags:
   - Linux
 categories:
   - 运维手册
 cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/202505050041292.png'
 toc: true
+abbrlink: a92b80
+date: 2025-05-05 00:40:00
 ---
 
 在使用 Docker 运行某些需要精细网络控制的容器（例如 VPN 服务器如 `wg-easy`，或者需要自定义防火墙规则的应用）时，你可能会遇到启动失败或网络功能异常的问题。有时，错误日志会隐晦地指向 `iptables` 相关操作失败。一个常见的解决方案是确保宿主机加载了必要的内核模块，特别是 `ip_tables` 和 `iptable_nat`。
