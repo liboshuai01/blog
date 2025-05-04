@@ -80,6 +80,7 @@ Frp（Fast Reverse Proxy）是一款高性能的内网穿透工具，广泛应�
    ```
 
 3. 配置`systemd`
+   > 使用`systemd`管理frps时，不要使用restart命令，而是先stop，再start。
 
    ```shell
    sudo tee /etc/systemd/system/frps.service  <<'EOF'
@@ -182,6 +183,7 @@ Frp（Fast Reverse Proxy）是一款高性能的内网穿透工具，广泛应�
    ```
 
 3. 配置`systemd`
+   > 使用`systemd`管理frpc时，不要使用restart命令，而是先stop，再start。
 
    ```shell
    sudo tee /etc/systemd/system/frpc.service  <<'EOF'
