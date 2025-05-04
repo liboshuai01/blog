@@ -45,7 +45,7 @@ Frp（Fast Reverse Proxy）是一款高性能的内网穿透工具，广泛应�
 2. 配置`frps.toml`文件
 
    ```shell
-   sudo tee /home/lbs/software/frp/frps.toml <<'EOF'
+   tee /home/lbs/software/frp/frps.toml <<'EOF'
    # 监听所有地址，如果你想使用特定的IP地址
    bindAddr = "0.0.0.0"
    
@@ -150,7 +150,7 @@ Frp（Fast Reverse Proxy）是一款高性能的内网穿透工具，广泛应�
 2. 配置`frpc.toml`文件
 
    ```shell
-   sudo tee /home/lbs/software/frp/frpc.toml <<'EOF'
+   tee /home/lbs/software/frp/frpc.toml <<'EOF'
    # 指定服务器地址与端口号。
    serverAddr = "云主机IP"
    serverPort = 7000
