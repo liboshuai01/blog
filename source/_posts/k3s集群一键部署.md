@@ -82,7 +82,13 @@ K3s 是一个由 Rancher Labs 推出的轻量级 Kubernetes 发行版，专为�
     node2    Ready    <none>                 46m   v1.32.3+k3s1
     ```
    
-6. 给`node1`、`node2`节点设置worker角色标签（可选）
+6. 添加`kubeconfig`文件路径环境变量到`~/.bashrc`文件最后一行（防止helm等工具无法识别`kubeconfig`文件路径）。
+
+   ```shell
+   export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
+   ```
+   
+7. 给`node1`、`node2`节点设置worker角色标签（可选）
 
    ```shell
    [root@master ~]# kubectl label nodes node1 node-role.kubernetes.io/worker=true
