@@ -53,7 +53,7 @@ systemctl start rpcbind
 #### 创建共享目录
 
 ```bash
-mkdir -p /data/nfs
+mkdir -p /data/nfs/k8s
 ```
 
 #### 配置导出目录
@@ -61,7 +61,7 @@ mkdir -p /data/nfs
 编辑 `/etc/exports` 文件，添加共享目录与客户端权限：
 
 ```bash
-/data/nfs *(insecure,rw,sync,no_root_squash)
+/data/nfs/k8s *(insecure,rw,sync,no_root_squash)
 ```
 
 #### 启动 NFS 服务并设置开机自启
@@ -87,15 +87,15 @@ exportfs
 在任意工作节点（如 `k8s-node1`）测试挂载：
 
 ```bash
-mkdir -p /data/nfs
-mount -t nfs master:/data/nfs /data/nfs
-df -h | grep /data/nfs
+mkdir -p /data/nfs/k8s
+mount -t nfs master:/data/nfs/k8s /data/nfs/k8s
+df -h | grep /data/nfs/k8s
 ```
 
 可在服务器端创建文件，客户端查看是否同步。完成验证后可根据需求卸载：
 
 ```bash
-umount /data/nfs
+umount /data/nfs/k8s
 ```
 
 ## 使用 Helm 安装 NFS Client Provisioner（旧版）
@@ -122,7 +122,7 @@ helm search repo nfs-client-provisioner
 ```bash
 helm install nfs-storage azure/nfs-client-provisioner \
   --set nfs.server=master \
-  --set nfs.path=/data/nfs \
+  --set nfs.path=/data/nfs/k8s \
   --set storageClass.name=nfs-storage \
   --set storageClass.defaultClass=true \
   --set rbac.create=true \
@@ -181,7 +181,7 @@ helm repo update
 ```bash
 helm install nfs-subdir-external-provisioner nfs-subdir-external-provisioner/nfs-subdir-external-provisioner \
   --set nfs.server=master \
-  --set nfs.path=/data/nfs \
+  --set nfs.path=/data/nfs/k8s \
   --set storageClass.name=nfs-storage \
   --set storageClass.defaultClass=true \
   --set rbac.create=true \
