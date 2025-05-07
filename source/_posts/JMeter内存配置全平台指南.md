@@ -7,7 +7,7 @@ categories:
 cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504262124434.png'
 toc: true
 abbrlink: 6a4debcd
-date: 2025-01-07 20:59:28
+date: 2024-05-17 20:59:28
 ---
 
 在进行大数据和高并发环境下的性能压测时，JMeter 可能出现卡死或崩溃现象，常见错误日志显示为：

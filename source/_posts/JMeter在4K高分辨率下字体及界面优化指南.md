@@ -7,7 +7,7 @@ categories:
 cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/202504262049791.png'
 toc: true
 abbrlink: 41e2ce88
-date: 2025-01-07 20:41:18
+date: 2024-05-17 20:41:18
 ---
 
 随着高分辨率显示器的普及，尤其是4K分辨率，许多开发和测试工具在默认配置下界面元素显得过小，影响使用体验。Apache JMeter虽然从高版本开始已经支持HiDPI（高DPI）屏幕，但默认状态下这项功能并未启用。本文将介绍如何针对JMeter 5.3版本，在Windows 10系统和4K显示环境下，进行字体和界面图标的适配设置，提升使用舒适度。
