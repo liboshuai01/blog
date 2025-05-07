@@ -5,7 +5,7 @@ tags:
   - Jmeter
   - Kafka
 categories:
-  - 运维手册
+  - 杂货小铺
 cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250425150219154.png'
 toc: true
 abbrlink: eaa0f0e9
