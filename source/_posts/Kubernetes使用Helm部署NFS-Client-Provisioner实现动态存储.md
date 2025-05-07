@@ -8,7 +8,7 @@ categories:
 cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250425104445050.png'
 toc: true
 abbrlink: e3673e0e
-date: 2025-04-29 10:43:17                                                                                                                                                               
+date: 2025-05-05 10:43:17                                                                                                                                                               
 ---
 
 在自建 Kubernetes 集群时，为实现持久化存储，NFS 是一种常见且稳定的选择。为了方便管理和自动化动态存储，NFS Client Provisioner（即 nfs-client-provisioner）成为了社区推荐的解决方案。
