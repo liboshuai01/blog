@@ -1,5 +1,5 @@
 ---
-title: 使用 Helm 在 Kubernetes 集群中部署 Ingress-Nginx
+title: 采用 Helm 在 Kubernetes 集群中部署 Ingress-Nginx 实战指南
 tags:
   - Linux
   - k8s
@@ -406,6 +406,251 @@ Ingress 资源主要处理 HTTP/HTTPS，但 Ingress-Nginx Controller 也可以�
     ```
 
     更新后，Ingress Controller Pod 将在宿主机上监听 8880 (HTTP) 和 8881 (HTTPS) 端口。
+
+## 验证测试：确保 Ingress-Nginx 正常工作
+
+部署完 Ingress-Nginx Controller 后，我们需要验证它是否能正确地将外部流量路由到集群内部的示例应用。
+
+**核心验证思路：**
+1.  在集群中部署一个简单的 Web 应用（例如 Nginx）。
+2.  为该应用创建一个 Service，使其在集群内部可访问。
+3.  创建一个 Ingress 资源，定义路由规则，将特定域名或路径的请求指向该 Service。
+4.  通过配置本地 DNS 解析（如修改 `hosts` 文件）或使用 `curl` 的 `--resolve` 选项，模拟外部域名访问。
+5.  发送 HTTP 请求，验证是否能成功访问到示例应用。
+
+### 1. 准备示例应用清单 (`demo-app.yaml`)
+
+创建一个名为 `demo-app.yaml` 的文件，包含一个 Nginx Deployment、一个 ClusterIP Service 和一个 Ingress 资源。
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-nginx-app
+  labels:
+    app: demo-nginx
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: demo-nginx
+  template:
+    metadata:
+      labels:
+        app: demo-nginx
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:latest # 使用一个常见的 nginx 镜像
+          ports:
+            - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: demo-nginx-service
+  labels:
+    app: demo-nginx
+spec:
+  type: ClusterIP # Ingress 通常指向 ClusterIP 类型的 Service
+  selector:
+    app: demo-nginx
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80 # Service 监听的端口
+      targetPort: 80 # Pod 内容器的端口
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: demo-nginx-ingress
+  annotations:
+    # 如果你的集群有多个 Ingress Controller，或者默认 Ingress Class 不是 nginx，
+    # 建议显式指定 Ingress Class。
+    # kubernetes.io/ingress.class: nginx # 较旧版本
+    # nginx.ingress.kubernetes.io/rewrite-target: / # 如果需要 URL 重写
+  labels:
+    app: demo-nginx # 自定义标签，便于管理
+spec:
+  ingressClassName: nginx # 重要：确保与你的 Ingress-Nginx Controller 匹配
+                          # Helm 安装时默认的 IngressClass 名称通常是 "nginx"
+  rules:
+    - host: "nginx-demo.local.show" # 定义一个用于测试的域名
+      http:
+        paths:
+          - path: / # 匹配根路径
+            pathType: Prefix # 路径匹配类型
+            backend:
+              service:
+                name: demo-nginx-service # 指向上面创建的 Service
+                port:
+                  name: http # 指向 Service 定义的端口名 (或 number: 80)
+```
+
+**说明：**
+*   **`metadata.name`**: 为资源定义了清晰的名称，方便区分。
+*   **`spec.ingressClassName: nginx`**: 这是**至关重要**的一步。它告诉 Kubernetes 这个 Ingress 资源应该由名为 `nginx` 的 Ingress Controller 来处理。如果你在 Helm 安装 `ingress-nginx` 时指定了不同的 `controller.ingressClassResource.name`，这里也需要相应修改。
+*   **`host: "nginx-demo.local.show"`**: 我们使用一个自定义的本地域名进行测试。你可以替换为你喜欢的任何域名，但确保后续步骤中使用的域名与此处一致。
+*   **`pathType: Prefix`**: 表示以 `/` 开头的所有路径都会被匹配。
+
+### 2. 应用清单并检查资源状态
+
+在你的 Kubernetes 集群中应用这个清单文件。假设你将上述内容保存在了 `demo-app.yaml` 中。
+
+```bash
+# 部署示例应用 (通常部署在 default 命名空间，或指定你自己的命名空间)
+kubectl apply -f demo-app.yaml
+
+# 等待 Pod 启动完成
+kubectl get pods -l app=demo-nginx -w
+```
+
+检查所有相关资源是否已成功创建并处于健康状态：
+
+```bash
+# 查看 Pods, Service, 和 Ingress 资源
+kubectl get pods,svc,ingress -l app=demo-nginx
+```
+
+你应该看到类似如下的输出：
+
+```
+NAME                                  READY   STATUS    RESTARTS   AGE
+pod/demo-nginx-app-xxxxxxxxxx-yyyyy   1/1     Running   0          60s
+pod/demo-nginx-app-xxxxxxxxxx-zzzzz   1/1     Running   0          60s
+
+NAME                           TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)   AGE
+service/demo-nginx-service     ClusterIP   10.43.xxx.xxx   <none>        80/TCP    60s
+
+NAME                                     CLASS   HOSTS                   ADDRESS         PORTS   AGE
+ingress.networking.k8s.io/demo-nginx-ingress   nginx   nginx-demo.local.show   <NodeIP_or_LB_IP>   80      60s
+```
+*   **`ADDRESS` 字段**：对于 `DaemonSet + HostNetwork` 模式，Ingress 资源的 `ADDRESS` 字段可能会显示所有 Ingress Controller 节点 IP，或具体 Controller Service 的 ClusterIP (如果 helm chart 创建了 service)，或者在某些情况下可能为空。 **重要的是，实际访问将通过 Ingress Controller Pod 所在节点的 IP 进行。**
+
+### 3. 配置本地 DNS 解析或使用 `curl --resolve`
+
+为了让你的本地机器能够将 `nginx-demo.local.show` 解析到 Ingress Controller 节点，你有两种主要方法：
+
+**方法一：修改本地 `hosts` 文件**
+
+*   **获取一个运行 Ingress-Nginx Controller Pod 的节点 IP 地址。**
+    由于我们使用的是 `DaemonSet + HostNetwork`，Ingress-Nginx Pod 会在所有（或通过 `nodeSelector` 指定的）节点上运行，并直接监听节点的 80/443 端口。
+    ```bash
+    # 查看 Ingress-Nginx Controller Pod 运行在哪些节点及其 IP
+    kubectl get pods -n ingress-nginx -o wide -l app.kubernetes.io/name=ingress-nginx,app.kubernetes.io/component=controller
+    ```
+    从输出中选择任意一个 `NODE` 的 `INTERNAL-IP` 或 `EXTERNAL-IP` (如果外部可达)。
+
+*   **编辑你的 `hosts` 文件：**
+    *   Linux/macOS: `/etc/hosts`
+    *   Windows: `C:\Windows\System32\drivers\etc\hosts`
+
+    添加一行 (将 `<NODE_IP>` 替换为你选择的节点 IP)：
+    ```
+    <NODE_IP>   nginx-demo.local.show
+    ```
+    例如：
+    ```
+    192.168.1.101   nginx-demo.local.show
+    ```
+
+**方法二：使用 `curl` 的 `--resolve` 选项 (无需修改 `hosts` 文件)**
+
+这种方法更灵活，因为它只对当前的 `curl` 命令生效。
+
+```bash
+# 将 <NODE_IP> 替换为 Ingress Controller 节点 IP
+# 将 <PORT> 替换为 Ingress Controller 监听的 HTTP 端口 (默认为 80)
+curl --resolve "nginx-demo.local.show:<PORT>:<NODE_IP>" http://nginx-demo.local.show/
+```
+例如，如果节点 IP 是 `192.168.1.101`，HTTP 端口是 `80`：
+```bash
+curl --resolve "nginx-demo.local.show:80:192.168.1.101" http://nginx-demo.local.show/
+```
+
+### 4. 发送 HTTP 请求进行访问测试
+
+现在，你可以通过配置的域名访问你的 Nginx 示例应用了。
+
+```bash
+# 如果你修改了 hosts 文件
+curl http://nginx-demo.local.show
+
+# 或者直接使用上面带 --resolve 的 curl 命令
+curl --resolve "nginx-demo.local.show:80:<NODE_IP>" http://nginx-demo.local.show
+```
+
+**预期输出：**
+如果一切配置正确，你应该能看到 Nginx 的欢迎页面：
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+    body {
+        width: 35em;
+        margin: 0 auto;
+        font-family: Tahoma, Verdana, Arial, sans-serif;
+    }
+</style>
+</head>
+<body>
+<h1>Welcome to nginx!</h1>
+<p>If you see this page, the nginx web server is successfully installed and
+working. Further configuration is required.</p>
+
+<p>For online documentation and support please refer to
+<a href="http://nginx.org/">nginx.org</a>.<br/>
+Commercial support is available at
+<a href="http://nginx.com/">nginx.com</a>.</p>
+
+<p><em>Thank you for using nginx.</em></p>
+</body>
+</html>
+```
+
+### 5. 故障排查提示
+
+如果访问失败，可以尝试以下步骤进行排查：
+
+1.  **检查 Ingress-Nginx Controller Pods 日志：**
+    ```bash
+    kubectl logs -n ingress-nginx -l app.kubernetes.io/name=ingress-nginx,app.kubernetes.io/component=controller --tail=100
+    ```
+    查看是否有错误信息，例如无法连接到后端 Service、配置重载失败等。
+
+2.  **检查示例应用 Pods 日志：**
+    ```bash
+    kubectl logs -l app=demo-nginx --tail=100
+    ```
+    确保 Nginx 应用本身运行正常。
+
+3.  **检查 Ingress 资源事件：**
+    ```bash
+    kubectl describe ingress demo-nginx-ingress
+    kubectl get events --field-selector involvedObject.kind=Ingress,involvedObject.name=demo-nginx-ingress
+    ```
+    查看是否有与 Ingress 配置相关的错误或警告。
+
+4.  **验证 Ingress Controller 是否正确处理了 Ingress 规则：**
+    你可以进入 Ingress Controller Pod 内部，检查生成的 Nginx 配置文件 (`nginx.conf`)。
+    ```bash
+    # 获取一个 Ingress Controller Pod 的名称
+    NGINX_CONTROLLER_POD=$(kubectl get pods -n ingress-nginx -l app.kubernetes.io/name=ingress-nginx,app.kubernetes.io/component=controller -o jsonpath='{.items[0].metadata.name}')
+
+    # 查看 Nginx 配置 (注意：配置文件路径可能因版本而异)
+    kubectl exec -n ingress-nginx -it $NGINX_CONTROLLER_POD -- cat /etc/nginx/nginx.conf
+    ```
+    在配置文件中搜索你的域名 `nginx-demo.local.show`，确认是否有对应的 `server` 和 `location` 块，以及 `proxy_pass` 是否指向了正确的 Service IP 和端口。
+
+5.  **网络连通性：**
+    *   确保你的本地机器可以访问到 Ingress Controller 节点 IP 的 80/443 端口（检查防火墙规则）。
+    *   在 Ingress Controller Pod 内部尝试 `curl` 你的 `demo-nginx-service` 的 ClusterIP 和端口，验证 Pod 到 Service 的连通性。
+
+通过以上步骤，你应该能够有效地验证 Ingress-Nginx 的部署，并对常见的测试问题进行排查。
 
 ## 总结
 
