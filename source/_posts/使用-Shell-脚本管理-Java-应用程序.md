@@ -25,6 +25,7 @@ date: 2024-11-14 13:28:35
 #!/bin/bash
 
 # 定义变量
+MEMORY_SIZE="4096m" # 占用内存大小
 PROCESS_NAME="yudao-server.jar" # 进程名称
 ROOT_PATH="/home/lbs/project/ruoyi-pro" # 项目根路径
 GC_LOG_PATH="${ROOT_PATH}/backend/logs/service-gc.log" # jvm gc日志路径
@@ -39,7 +40,7 @@ start() {
     fi
 
     nohup java \
-        -Xms1024m -Xmx1024m \
+        -Xms"${MEMORY_SIZE}" -Xmx"${MEMORY_SIZE}" \
         -Xloggc:"${GC_LOG_PATH}" \
         -verbose:gc \
         -XX:+PrintGCDetails \
