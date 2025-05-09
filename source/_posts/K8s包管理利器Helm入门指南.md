@@ -1,9 +1,8 @@
 ---
-title: Kubernetes 包管理利器 helm 入门指南
+title: K8s包管理利器Helm入门指南
 tags:
   - Linux
   - k8s
-  - Docker
   - Helm
 categories:
   - 容器化

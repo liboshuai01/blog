@@ -1,12 +1,9 @@
 ---
-title: 采用 Helm 在 Kubernetes 集群中部署 Ingress-Nginx 实战指南
+title: K8s采用Helm部署Ingress-Nginx实战指南
 tags:
   - Linux
   - k8s
-  - Docker
   - Helm
-  - Ingress
-  - Nginx
 categories:
   - 容器化
 cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/202505061122195.png'

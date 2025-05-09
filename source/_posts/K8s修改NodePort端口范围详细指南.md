@@ -1,7 +1,6 @@
 ---
-title: Kubernetes修改NodePort端口范围详细指南
+title: K8s修改NodePort端口范围详细指南
 tags:
-  - 环境搭建
   - Linux
   - k8s
 categories:

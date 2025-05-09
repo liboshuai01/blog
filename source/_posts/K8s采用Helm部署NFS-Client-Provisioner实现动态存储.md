@@ -1,8 +1,9 @@
 ---
-title: Kubernetes使用Helm部署NFS-Client-Provisioner实现动态存储
+title: K8s采用Helm部署NFS-Client-Provisioner实现动态存储
 tags:
   - Linux
   - k8s
+  - Helm
 categories:
   - 容器化
 cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250425104445050.png'

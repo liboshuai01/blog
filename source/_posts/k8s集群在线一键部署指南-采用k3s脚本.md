@@ -1,5 +1,5 @@
 ---
-title: k3s集群一键部署
+title: k8s集群在线一键部署指南（采用k3s脚本）
 tags:
   - 环境搭建
   - Linux
