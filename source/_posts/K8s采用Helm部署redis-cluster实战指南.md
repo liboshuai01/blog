@@ -1,5 +1,5 @@
 ---
-title: K8s采用Helm部署高可用Redis集群实战指南
+title: K8s采用Helm部署redis-cluster实战指南
 tags:
   - Linux
   - k8s
