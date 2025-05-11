@@ -2,7 +2,7 @@
 title: K8s采用Helm部署NFS-Client-Provisioner实现动态存储
 tags:
   - Linux
-  - k8s
+  - K8s
   - Helm
 categories:
   - 容器化

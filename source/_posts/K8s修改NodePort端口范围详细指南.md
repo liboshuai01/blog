@@ -2,7 +2,7 @@
 title: K8s修改NodePort端口范围详细指南
 tags:
   - Linux
-  - k8s
+  - K8s
 categories:
   - 容器化
 cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250425102631839.png'

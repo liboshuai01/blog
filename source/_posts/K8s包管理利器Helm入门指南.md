@@ -2,7 +2,7 @@
 title: K8s包管理利器Helm入门指南
 tags:
   - Linux
-  - k8s
+  - K8s
   - Helm
 categories:
   - 容器化

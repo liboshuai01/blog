@@ -2,7 +2,7 @@
 title: 'K8s 网络揭秘：ClusterIP, Headless, NodePort, LoadBalancer 与 Ingress 全解析'
 tags:
   - Linux
-  - k8s
+  - K8s
 categories:
   - 容器化
 cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/202505111314663.png'

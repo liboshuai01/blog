@@ -2,7 +2,7 @@
 title: K8s采用Operator部署redis-cluster实战指南
 tags:
   - Linux
-  - k8s
+  - K8s
   - Operator
   - Redis
 categories:

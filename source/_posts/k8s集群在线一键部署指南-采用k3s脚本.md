@@ -3,7 +3,7 @@ title: k8s集群在线一键部署指南（采用k3s脚本）
 tags:
   - 环境搭建
   - Linux
-  - k8s
+  - K8s
 categories:
   - 容器化
 cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250411142201678.png'
