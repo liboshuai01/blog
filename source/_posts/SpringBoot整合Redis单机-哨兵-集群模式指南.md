@@ -18,7 +18,7 @@ date: 2023-07-21 00:04:11
 
 <!-- more -->
 
-> 项目仓库：[github](https://github.com/liboshuai01/lbs-demo.git) [gitee](https://gitee.com/liboshuai01/lbs-demo.git)
+> 项目仓库：[github](https://github.com/liboshuai01/lbs-demo/tree/master/springboot-redis) [gitee](https://gitee.com/liboshuai01/lbs-demo/tree/master/springboot-redis)
 
 ## 通用配置与基础
 
