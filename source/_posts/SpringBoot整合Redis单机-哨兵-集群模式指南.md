@@ -18,6 +18,8 @@ date: 2023-07-21 00:04:11
 
 <!-- more -->
 
+> 项目仓库：[github](https://github.com/liboshuai01/lbs-demo.git) [gitee](https://gitee.com/liboshuai01/lbs-demo.git)
+
 ## 通用配置与基础
 
 在深入不同模式之前，我们需要引入必要的 Maven 依赖并配置基础的 `RedisTemplate`，以便在 Spring Boot 应用中与 Redis 进行交互。
