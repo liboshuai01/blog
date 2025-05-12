@@ -7,7 +7,7 @@ tags:
   - SpringBoot
 categories:
   - Java
-cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250417184826499.png'
+cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/202505130105979.png'
 toc: true
 abbrlink: e6e6494a
 date: 2023-11-18 15:35:00
