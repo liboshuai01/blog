@@ -180,12 +180,12 @@ kubectl get pods --namespace redis-ha -l app.kubernetes.io/name=redis-cluster -w
 等待所有 Pod 的 `STATUS` 变为 `Running`，并且 `READY` 状态为 `1/1`。
 ```text
 NAME              READY   STATUS    RESTARTS   AGE
-redis-cluster-0   1/1     Running   0          5m
-redis-cluster-1   1/1     Running   0          5m
-redis-cluster-2   1/1     Running   0          5m
-redis-cluster-3   1/1     Running   0          5m
-redis-cluster-4   1/1     Running   0          5m
-redis-cluster-5   1/1     Running   0          5m
+redis-cluster-0   2/2     Running   0          18m
+redis-cluster-1   2/2     Running   0          18m
+redis-cluster-2   2/2     Running   0          18m
+redis-cluster-3   2/2     Running   0          18m
+redis-cluster-4   2/2     Running   0          18m
+redis-cluster-5   2/2     Running   0          18m
 ```
 按 `Ctrl+C` 退出 `-w` (watch) 模式。
 
