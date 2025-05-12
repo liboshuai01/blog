@@ -117,33 +117,16 @@ global:
   storageClass: "nfs-storage"     # 确保 "nfs-storage" 是您环境中可用的 StorageClass
   redis:
     password: "YourStrongPassword123!"  # 设置 Redis 集群访问密码，务必使用强密码
+    
+......
+......
+......
 
-# (可选) 资源配置示例，根据实际需求调整
-# master:
-#   persistence:
-#     size: 10Gi
-#   resources:
-#     requests:
-#       cpu: "500m"
-#       memory: "512Mi"
-#     limits:
-#       cpu: "1"
-#       memory: "1Gi"
-# slave:
-#   persistence:
-#     size: 10Gi
-#   resources:
-#     requests:
-#       cpu: "250m"
-#       memory: "256Mi"
-#     limits:
-#       cpu: "500m"
-#       memory: "512Mi"
+metrics:
+  ## @param metrics.enabled Start a side-car prometheus exporter
+  ##
+  enabled: true # 启动 redis-exporter 监控
 
-# 默认会部署 3 主 3 从。如果需要调整节点数，可以修改以下配置：
-# cluster:
-#   nodes: 6
-#   replicas: 1 # 每个主节点的从节点数量
 ```
 > **🛡️ 安全提示**
 > 请务必将 `YourStrongPassword123!` 替换为一个复杂且唯一的强密码。避免使用弱密码。
