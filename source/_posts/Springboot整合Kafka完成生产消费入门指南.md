@@ -259,7 +259,7 @@ public class KafkaConsumerConfig {
 
         // VALUE 反序列化器: ErrorHandlingDeserializer包装JsonDeserializer
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, ErrorHandlingDeserializer.class);
-        props.put(ErrorHandlingDeserializer.VALUE_DESERIALIZER_CLASS, JsonDeserializer.class);
+        props.put(ErrorHandlingDeserializer.VALUE_DESERIALIZER_CLASS, StringDeserializer.class);
         // 配置JsonDeserializer信任所有包路径，或指定特定包路径以增强安全性
         props.put(JsonDeserializer.TRUSTED_PACKAGES, "*");
         // 如果发送端JsonSerializer未添加类型信息，或希望反序列化为特定类型，可以配置
