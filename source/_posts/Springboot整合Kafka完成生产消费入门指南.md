@@ -55,9 +55,9 @@ spring:
       batch-size: 32768                       # 批量发送大小 (32KB)，根据消息体大小和吞吐量调整
       buffer-memory: 33554432                 # 生产者缓冲区总大小 (32MB)
       properties:
-        # linger.ms: 5000                    # 消息在缓冲区等待合并发送的最大时间 (ms)，与batch-size配合使用
-        # compression.type: snappy           # 消息压缩类型: none, gzip, snappy, lz4, zstd
-        # enable.idempotence: true           # 开启幂等性，配合acks=all, retries>0, max.in.flight.requests.per.connection<=5
+        linger.ms: 5000                    # 消息在缓冲区等待合并发送的最大时间 (ms)，与batch-size配合使用
+        compression.type: snappy           # 消息压缩类型: none, gzip, snappy, lz4, zstd
+        enable.idempotence: true           # 开启幂等性，配合acks=all, retries>0, max.in.flight.requests.per.connection<=5
     consumer:
       bootstrap-servers: node1:9092,node2:9092,node3:9092 # Kafka集群地址
       group-id: demo_group                    # 消费者组ID，非常重要
@@ -130,8 +130,12 @@ public class KafkaProducerConfig { // 类名修改为Producer以区分
     @Value("${spring.kafka.producer.buffer-memory}")
     private Long bufferMemory; // 类型改为Long
     // 可选地从配置文件读取 linger.ms, compression.type, enable.idempotence 等
-    // @Value("${spring.kafka.producer.properties.linger.ms:50}") // 默认50ms
-    // private Long lingerMs;
+    @Value("${spring.kafka.producer.properties.linger.ms:50}") // 默认50ms
+    private Long lingerMs;
+    @Value("${spring.kafka.producer.properties.compression.type:snappy}") // 默认snappy
+    private String compressionType;
+    @Value("${spring.kafka.producer.properties.enable.idempotence:true}") // 默认true
+    private Boolean enableIdempotence;
 
     @Resource
     private KafkaSendResultHandler kafkaSendResultHandler;
@@ -144,9 +148,9 @@ public class KafkaProducerConfig { // 类名修改为Producer以区分
         props.put(ProducerConfig.RETRIES_CONFIG, retries);
         props.put(ProducerConfig.BATCH_SIZE_CONFIG, batchSize);
         props.put(ProducerConfig.BUFFER_MEMORY_CONFIG, bufferMemory);
-        // props.put(ProducerConfig.LINGER_MS_CONFIG, lingerMs); // 实际项目中建议配置
-        // props.put(ProducerConfig.COMPRESSION_TYPE_CONFIG, "snappy"); // 根据需要启用压缩
-        // props.put(ProducerConfig.ENABLE_IDEMPOTENCE_CONFIG, true); // 开启幂等性以实现EOS保障
+        props.put(ProducerConfig.LINGER_MS_CONFIG, lingerMs); // 实际项目中建议配置
+        props.put(ProducerConfig.COMPRESSION_TYPE_CONFIG, compressionType); // 根据需要启用压缩
+        props.put(ProducerConfig.ENABLE_IDEMPOTENCE_CONFIG, enableIdempotence); // 开启幂等性以实现EOS保障
 
         // Key和Value的序列化器
         props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
