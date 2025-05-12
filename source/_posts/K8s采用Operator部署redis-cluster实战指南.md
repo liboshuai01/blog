@@ -61,13 +61,13 @@ helm repo add ot-helm https://ot-container-kit.github.io/helm-charts/
 helm repo update
 
 # 安装 Redis Operator 到 'operator' 命名空间 (如果不存在则创建)
-helm install redis-operator ot-helm/redis-operator -n operator --create-namespace
+helm install redis-operator ot-helm/redis-operator -n ot-operator --create-namespace
 ```
 
 安装完成后，验证 Operator Pod 是否正常运行：
 
 ```bash
-kubectl get pods -n operator
+kubectl get pods -n ot-operator
 ```
 
 您应该看到类似如下的输出，Operator Pod 处于 `Running` 状态：
