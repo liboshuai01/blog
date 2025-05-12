@@ -1,9 +1,10 @@
 ---
-title: K8s采用Helm部署redis-cluster实战指南
+title: K8s采用Helm部署Redis-Cluster实战指南
 tags:
   - Linux
   - K8s
   - Helm
+  - Redis
 categories:
   - 容器化
 cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250509140551459.png'
