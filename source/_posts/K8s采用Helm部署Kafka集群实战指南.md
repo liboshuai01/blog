@@ -143,6 +143,17 @@ controller:
       - ReadWriteOnce
     size: 8Gi # 修复设置存储大小: 如果启用，日志存储大小
     mountPath: /opt/bitnami/kafka/logs
+    
+## Prometheus Exporters / Metrics
+##
+metrics:
+  ## Prometheus JMX exporter: exposes the majority of Kafka metrics
+  ##
+  jmx:
+    ## @param metrics.jmx.enabled Whether or not to expose JMX metrics to Prometheus
+    ##
+    enabled: true # 启用 Prometheus JMX exporter
+    
 # ... 其他配置 ...
 ```
 
@@ -156,6 +167,7 @@ controller:
 6.  **`controller.persistence.storageClass`**: 设置为 `nfs-storage`，为 Kafka 数据指定使用的 StorageClass。
 7.  **`controller.persistence.size`**: 设置为 `8Gi`，为每个 Kafka 节点的数据卷大小。
 8.  **`controller.logPersistence`**: 示例中 `enabled` 为 `false`，但我们仍为其配置了 `storageClass` 和 `size`。如果需要持久化 Kafka 自身运行日志，可以将其 `enabled` 设置为 `true`。
+9.  **`metrics.jmx.enabled`**: 设置为`true`，启用 Prometheus JMX exporter，用于收集 Kafka 集群的指标。
 
 ### 步骤四：部署 Kafka 集群
 
