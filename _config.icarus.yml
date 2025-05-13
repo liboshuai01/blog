@@ -279,10 +279,10 @@ widgets:
         position: left
         type: recent_posts
     # Archives widget configurations
-    -
-        # Where should the widget be placed, left sidebar or right sidebar
-        position: left
-        type: archives
+#    -
+#        # Where should the widget be placed, left sidebar or right sidebar
+#        position: left
+#        type: archives
     # Tags widget configurations
     -
         # Where should the widget be placed, left sidebar or right sidebar
