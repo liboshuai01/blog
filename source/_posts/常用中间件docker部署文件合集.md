@@ -15,7 +15,7 @@ date: 2024-07-11 00:19:03
 
 <!-- more -->
 
-openwebui
+Openwebui
 ---
 
 ```shell
@@ -920,7 +920,7 @@ volumes:
   data:
 ```
 
-xxl-job
+Xxl-job
 ---
 
 ```yaml
