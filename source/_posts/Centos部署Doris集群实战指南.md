@@ -1,10 +1,10 @@
 ---
-title: Doris集群搭建
+title: Centos部署Doris集群实战指南
 tags:
-   - Linux
-   - Doris
+  - Linux
+  - Doris
 categories:
-   - 环境搭建
+  - 环境搭建
 cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250409145732836.png'
 toc: true
 abbrlink: 1c0d9a3d
