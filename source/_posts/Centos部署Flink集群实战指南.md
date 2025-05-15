@@ -1,5 +1,5 @@
 ---
-title: Flink集群搭建
+title: Centos部署Flink集群实战指南
 tags:
   - Linux
   - Flink

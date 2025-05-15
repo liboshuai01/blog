@@ -1,5 +1,5 @@
 ---
-title: Hadoop集群搭建
+title: Centos部署Hadoop集群实战指南
 tags:
   - Linux
   - Hadoop

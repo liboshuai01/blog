@@ -1,5 +1,5 @@
 ---
-title: ClickHouse集群搭建
+title: Centos部署ClickHouse集群实战指南
 tags:
   - Linux
   - ClickHouse

@@ -1,5 +1,5 @@
 ---
-title: Kafka集群搭建
+title: Centos部署Kafka集群实战指南
 tags:
   - 环境搭建
   - Linux

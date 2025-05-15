@@ -1,5 +1,5 @@
 ---
-title: Redis主从/哨兵/集群离线部署指南
+title: Centos部署Redis主从/哨兵/集群实战指南
 tags:
   - 环境搭建
   - Linux

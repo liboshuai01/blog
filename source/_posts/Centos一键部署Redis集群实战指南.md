@@ -1,5 +1,5 @@
 ---
-title: Redis集群一键搭建
+title: Centos一键部署Redis集群实战指南
 tags:
   - 环境搭建
   - Linux

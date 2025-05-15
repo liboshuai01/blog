@@ -1,5 +1,5 @@
 ---
-title: Zookeeper集群搭建
+title: Centos部署Zookeeper集群实战指南
 tags:
   - 环境搭建
   - Linux

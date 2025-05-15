@@ -1,5 +1,5 @@
 ---
-title: Hexo搭建个人博客至服务器
+title: Centos部署Hexo个人博客实战指南
 tags:
   - Linux
   - Hexo
