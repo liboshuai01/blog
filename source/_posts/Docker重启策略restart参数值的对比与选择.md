@@ -6,7 +6,7 @@ tags:
   - 容器化
 categories:
   - 容器化
-cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/202505152259926.png'
+cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/202505180341119.png'
 toc: true
 abbrlink: cecb4f00
 date: 2025-05-15 22:57:57
