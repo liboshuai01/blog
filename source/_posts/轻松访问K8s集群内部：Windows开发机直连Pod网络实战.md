@@ -6,7 +6,7 @@ tags:
   - Windows
 categories:
   - 容器化
-cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/202505120207311.png'
+cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250520115810395.png'
 toc: true
 abbrlink: 2b92c30b
 date: 2025-05-12 02:05:52

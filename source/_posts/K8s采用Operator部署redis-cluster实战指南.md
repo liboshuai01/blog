@@ -7,7 +7,7 @@ tags:
   - Redis
 categories:
   - 容器化
-cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/202505101355386.png'
+cover: 'https://lbs-images.oss-cn-shanghai.aliyuncs.com/20250520115854685.png'
 toc: true
 abbrlink: 6024f5c5
 date: 2025-05-10 13:53:34
