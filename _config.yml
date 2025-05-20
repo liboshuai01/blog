@@ -13,7 +13,7 @@ timezone: 'Asia/Shanghai'
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: https://liboshuai.icu
+url: https://lbs.wiki
 #permalink: :year/:month/:day/:title/
 permalink: '/pages/:abbrlink/'
 permalink_defaults:
@@ -110,5 +110,5 @@ theme: icarus
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: 'git'
-  repo: ssh://root@liboshuai.icu:22222/root/document/hexo.git
+  repo: ssh://root@lbs.wiki:22222/root/document/hexo.git
   branch: master

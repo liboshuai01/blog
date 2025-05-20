@@ -46,7 +46,7 @@ Helm 作为 Kubernetes 的包管理器，极大地简化了复杂应用的部署
 
 *   一个可用的 Kubernetes 集群。
 *   `kubectl` 命令行工具已配置并连接到集群。
-*   `helm` v3 命令行工具已安装，如果没有安装，可以参考[Kubernetes 包管理利器 helm 入门指南](https://liboshuai.icu/pages/2eda4ff/)来进行安装。
+*   `helm` v3 命令行工具已安装，如果没有安装，可以参考[Kubernetes 包管理利器 helm 入门指南](https://lbs.wiki/pages/2eda4ff/)来进行安装。
 *   （可选）`docker` 命令行工具，用于处理镜像（如果需要手动拉取和加载）。
 
 ## 安装步骤

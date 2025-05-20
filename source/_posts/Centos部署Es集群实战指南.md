@@ -27,13 +27,13 @@ date: 2023-10-10 19:14:59
 
 一个稳定高效的Elasticsearch集群离不开精心准备的运行环境。以下是部署前务必完成的基础环境配置：
 
-- 关闭防火墙：[Firewalld防火墙常用命令手册](https://liboshuai.icu/pages/7cdf467c/)
-- 创建普通用户：[CentOS系统用户管理入门指南](https://liboshuai.icu/pages/ccf5da00/)
-- 时钟同步：[CentOS7与RockyLinux系统时间同步指南](https://liboshuai.icu/pages/669fb41a/)
-- 配置免密登录：[Linux多台服务器之间免密登录](https://liboshuai.icu/pages/f7c16155/)
-- 关闭SELinux、关闭Swap分区、调整文件句柄数和进程数限制、调整虚拟内存区域限制：[优化Centos关闭SELinux/Swap及资源限制调整](https://liboshuai.icu/pages/d040eabd/)
-- 配置`xsync`、`xcall`同步脚本：[Linux编写xcall命令执行与xsync文件同步脚本](https://liboshuai.icu/pages/c8cd0634/)
-- 配置JDK 8环境：[Linux安装Jdk8](https://liboshuai.icu/pages/42f5694/)
+- 关闭防火墙：[Firewalld防火墙常用命令手册](https://lbs.wiki/pages/7cdf467c/)
+- 创建普通用户：[CentOS系统用户管理入门指南](https://lbs.wiki/pages/ccf5da00/)
+- 时钟同步：[CentOS7与RockyLinux系统时间同步指南](https://lbs.wiki/pages/669fb41a/)
+- 配置免密登录：[Linux多台服务器之间免密登录](https://lbs.wiki/pages/f7c16155/)
+- 关闭SELinux、关闭Swap分区、调整文件句柄数和进程数限制、调整虚拟内存区域限制：[优化Centos关闭SELinux/Swap及资源限制调整](https://lbs.wiki/pages/d040eabd/)
+- 配置`xsync`、`xcall`同步脚本：[Linux编写xcall命令执行与xsync文件同步脚本](https://lbs.wiki/pages/c8cd0634/)
+- 配置JDK 8环境：[Linux安装Jdk8](https://lbs.wiki/pages/42f5694/)
 
 > **重要提示**：环境准备是集群稳定运行的基石，请务必仔细按照参考博文完成每一项配置。
 

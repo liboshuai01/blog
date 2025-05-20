@@ -71,7 +71,7 @@ WireGuard 需要较新的 Linux 内核支持。通常要求 **内核版本 >= 5.
 uname -r
 ```
 
-如果版本低于 5.6，你需要升级内核。可以参考你的 Linux 发行版官方文档或相关教程进行升级，例如：[Rocky Linux 8.10 内核升级实战：拥抱 Linux 6.1 LTS](https://liboshuai.icu/pages/fced2319/)。
+如果版本低于 5.6，你需要升级内核。可以参考你的 Linux 发行版官方文档或相关教程进行升级，例如：[Rocky Linux 8.10 内核升级实战：拥抱 Linux 6.1 LTS](https://lbs.wiki/pages/fced2319/)。
 
 #### 2. 确保 Docker 网络依赖的内核模块已加载
 
@@ -82,14 +82,14 @@ lsmod | grep ip_tables
 lsmod | grep iptable_nat
 ```
 
-如果这两条命令都有输出，则表示模块已加载。如果没有，需要手动加载。具体方法请参考：[解决 Docker 容器网络问题：加载 ip_tables 和 iptable_nat 内核模块](https://liboshuai.icu/pages/a92b80/)。通常可以通过 `modprobe ip_tables` 和 `modprobe iptable_nat` 来加载，并配置开机自动加载。
+如果这两条命令都有输出，则表示模块已加载。如果没有，需要手动加载。具体方法请参考：[解决 Docker 容器网络问题：加载 ip_tables 和 iptable_nat 内核模块](https://lbs.wiki/pages/a92b80/)。通常可以通过 `modprobe ip_tables` 和 `modprobe iptable_nat` 来加载，并配置开机自动加载。
 
 #### 3. 安装 Docker 和 Docker Compose
 
 如果你的 `test` 服务器上尚未安装 Docker 和 Docker Compose，请先安装。
 
 * **Docker 安装:** 参考 Docker
-  官方文档或 [CentOS系统指定版本Docker与Docker Compose在线安装教程](https://liboshuai.icu/pages/987e17e9/)。
+  官方文档或 [CentOS系统指定版本Docker与Docker Compose在线安装教程](https://lbs.wiki/pages/987e17e9/)。
 * **Docker Compose 安装:** 参考 Docker 官方文档或上述教程。
 
 #### 4. 配置并启动 wg-easy
@@ -199,7 +199,7 @@ docker logs wg-easy -f
 
 ### 第二步：使用 frp 进行内网穿透，暴露 WireGuard 端口
 
-> 关于frp内网穿透的详细教程请参考：[frp内网穿透](https://liboshuai.icu/pages/b2dafbdf/)，这里不再赘述，只是简单给出配置文件。
+> 关于frp内网穿透的详细教程请参考：[frp内网穿透](https://lbs.wiki/pages/b2dafbdf/)，这里不再赘述，只是简单给出配置文件。
 
 云服务器上的 `frps` 服务器配置文件示例：
 

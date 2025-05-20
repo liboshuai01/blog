@@ -137,7 +137,7 @@ sudo chmod +x /root/document/hexo.git/hooks/post-receive
        listen        80;
        listen   [::]:80;
        # 配置为自己的域名
-       server_name  liboshuai.icu;
+       server_name  lbs.wiki;
    
        rewrite ^(.*)$ https://${server_name}$1 permanent;
    }
@@ -145,12 +145,12 @@ sudo chmod +x /root/document/hexo.git/hooks/post-receive
    server {
        listen  443 ssl;
        # 配置为自己的域名
-       server_name  liboshuai.icu;
+       server_name  lbs.wiki;
    
        # 配置为自己ssl证书pem文件的路径
-       ssl_certificate   /etc/nginx/ssl/liboshuai.icu.pem;
+       ssl_certificate   /etc/nginx/ssl/lbs.wiki.pem;
        # 配置为自己ssl证书key文件的路径
-       ssl_certificate_key   /etc/nginx/ssl/liboshuai.icu.key;
+       ssl_certificate_key   /etc/nginx/ssl/lbs.wiki.key;
    
        ssl_session_cache   shared:SSL:1m;
        ssl_session_timeout   5m;
@@ -289,7 +289,7 @@ git config --global user.name "BoShuai Li"
    hexo clean && hexo d -g
    ```
    
-7. 浏览器打开`https://liboshuai.icu`链接访问博客页面，进行查看
+7. 浏览器打开`https://lbs.wiki`链接访问博客页面，进行查看
 
 ## 主题美化
 
@@ -311,7 +311,7 @@ timezone: 'Asia/Shanghai'
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: https://liboshuai.icu
+url: https://lbs.wiki
 #permalink: :year/:month/:day/:title/
 #permalink: '/pages/:title/'
 permalink: '/pages/:abbrlink/'

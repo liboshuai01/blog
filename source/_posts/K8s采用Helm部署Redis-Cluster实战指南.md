@@ -35,7 +35,7 @@ date: 2025-05-09 13:59:31
 3.  **NFS StorageClass**: 预先配置好的、可动态申请持久卷 (PV) 的 StorageClass。Redis 数据将持久化到 NFS 存储中。
 
 > **💡 提示**
-> 如果您尚未配置 NFS StorageClass，可以参考官方文档或相关教程进行部署。例如，[Kubernetes使用Helm部署NFS-Client-Provisioner实现动态存储](https://liboshuai.icu/pages/e3673e0e/) 这篇文章提供了很好的指导。动态存储配置是实现数据持久化的关键。
+> 如果您尚未配置 NFS StorageClass，可以参考官方文档或相关教程进行部署。例如，[Kubernetes使用Helm部署NFS-Client-Provisioner实现动态存储](https://lbs.wiki/pages/e3673e0e/) 这篇文章提供了很好的指导。动态存储配置是实现数据持久化的关键。
 
 ---
 
