@@ -200,28 +200,67 @@ helm install nfs-subdir-external-provisioner nfs-subdir-external-provisioner/nfs
 
 ### 设置默认 StorageClass 注意事项
 
-在通过 `--set storageClass.defaultClass=true` 将 `nfs-storage` 设置为默认 StorageClass 后，需确保 Kubernetes 集群中不会有多个
-StorageClass 被标记为默认，否则会引发 PVC 动态绑定冲突。
+当您通过 Helm 安装 `nfs-subdir-external-provisioner` (或旧版的 `nfs-client-provisioner`) 并使用 `--set storageClass.defaultClass=true` 将您创建的 `nfs-storage` 设置为默认 StorageClass 时，必须确保 Kubernetes 集群中这是**唯一**被标记为默认的 StorageClass。否则，PVC 在尝试动态绑定时可能会遇到冲突或选择非预期的 StorageClass。
 
-**例如，常见的本地存储插件 `local-path` 默认也通常是默认 StorageClass**，需要把它的默认标识取消：
+**处理 K3s 自带的 `local-path` StorageClass：**
 
-```bash
-kubectl patch storageclass local-path \
-  -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"false"}}}'
-```
+K3s 为了提供开箱即用的本地存储解决方案，会默认安装 `local-path-provisioner`，它会自动创建一个名为 `local-path` 的 StorageClass，并且这个 `local-path` 通常也会被设置为默认。
 
-执行后可以确认：
+如果您仅执行 `kubectl delete storageclass local-path`，K3s 在后续的某些操作中（如重启服务或内部组件同步）可能会检测到这个它认为的 "核心组件" 丢失并重新创建它。为了彻底阻止 K3s 自动创建 `local-path` StorageClass，并确保您的 `nfs-storage` 是唯一的默认 StorageClass，请遵循以下步骤：
 
-```bash
-kubectl get storageclass
-```
+1.  **禁用 K3s 的 `local-storage` 组件：**
+    这是最关键的一步，可以从根本上阻止 K3s 创建 `local-path`。您需要修改 K3s 的 systemd 服务单元文件。
+    打开 K3s 服务文件 (通常是 `/etc/systemd/system/k3s.service`):
+    ```bash
+    sudo vim /etc/systemd/system/k3s.service
+    ```
+    找到 `ExecStart` 行，并在 `k3s server` 命令后添加 `--disable local-storage` 参数。例如：
+    ```diff
+    ExecStart=/usr/local/bin/k3s \
+        server \
+    +   --disable local-storage \
+        --some-other-existing-options
+    ```
+    保存文件后，重新加载 systemd 配置并重启 K3s 服务：
+    ```bash
+    sudo systemctl daemon-reload
+    sudo systemctl restart k3s
+    ```
 
-此时 `nfs-storage` 应该是唯一带有 `(default)` 标识的存储类。
+2.  **清理现有的 `local-path` StorageClass (如果K3s重启后仍然存在)：**
+    在 K3s 重启并禁用了 `local-storage` 组件后，它应该不会再主动创建 `local-path`。但如果之前它已经存在，或者在您操作期间被短暂重建，您可能需要手动清理它。
+  *   首先，如果 `local-path` 仍然存在并且是默认的，先取消其默认标记（这一步在禁用组件后可能不再严格必要，但作为保险措施是好的）：
+      ```bash
+      kubectl patch storageclass local-path -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"false"}}}'
+      ```
+  *   然后，删除 `local-path` StorageClass：
+      ```bash
+      kubectl delete storageclass local-path
+      ```
 
-这样做确保：
+3.  **验证 StorageClass 配置：**
+    执行以下命令查看当前的 StorageClass 状态：
+    ```bash
+    kubectl get storageclass
+    ```
+    您应该能看到 `nfs-storage` 是唯一带有 `(default)` 标识的存储类，并且 `local-path` 不再存在或至少不再是默认。
 
-- 新建 PVC 如果没有特别指定 `storageClassName`，会默认使用 `nfs-storage`。
-- 避免多个存储类同时为默认，导致 PVC 动态供给异常。
+通过以上步骤，您可以确保：
+
+*   K3s 不会再自动创建或恢复 `local-path` StorageClass。
+*   您通过 Helm 安装的 `nfs-storage` 成为集群中唯一的默认 StorageClass。
+*   新建的 PersistentVolumeClaim (PVC) 如果没有显式指定 `storageClassName`，将会默认使用 `nfs-storage` 进行动态供给。
+*   避免了因多个默认 StorageClass 导致的潜在冲突和 PVC 绑定问题。
+
+---
+
+**使用说明：**
+
+*   将上述修改后的文本块替换掉你原文中对应的 "设置默认 StorageClass 注意事项" 部分。
+*   注意，原文中有两个地方提到了这个注意事项（旧版 `nfs-client-provisioner` 和新版 `nfs-subdir-external-provisioner` 各一次），你需要在这两处都进行替换，或者只保留新版的部分并更新。考虑到你明确指出了旧版已淘汰，建议重点更新新版部分的说明。
+*   `--some-other-existing-options` 是占位符，表示 `k3s server` 命令原有的其他参数，修改时请保留它们。
+
+这个修改后的版本更详细地解释了 K3s 的行为，并提供了更彻底的解决方案来管理 `local-path` StorageClass。
 
 ## 创建与使用 PersistentVolumeClaim
 
