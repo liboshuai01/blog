@@ -252,16 +252,6 @@ K3s 为了提供开箱即用的本地存储解决方案，会默认安装 `local
 *   新建的 PersistentVolumeClaim (PVC) 如果没有显式指定 `storageClassName`，将会默认使用 `nfs-storage` 进行动态供给。
 *   避免了因多个默认 StorageClass 导致的潜在冲突和 PVC 绑定问题。
 
----
-
-**使用说明：**
-
-*   将上述修改后的文本块替换掉你原文中对应的 "设置默认 StorageClass 注意事项" 部分。
-*   注意，原文中有两个地方提到了这个注意事项（旧版 `nfs-client-provisioner` 和新版 `nfs-subdir-external-provisioner` 各一次），你需要在这两处都进行替换，或者只保留新版的部分并更新。考虑到你明确指出了旧版已淘汰，建议重点更新新版部分的说明。
-*   `--some-other-existing-options` 是占位符，表示 `k3s server` 命令原有的其他参数，修改时请保留它们。
-
-这个修改后的版本更详细地解释了 K3s 的行为，并提供了更彻底的解决方案来管理 `local-path` StorageClass。
-
 ## 创建与使用 PersistentVolumeClaim
 
 ### 编写 PVC 资源配置
