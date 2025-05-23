@@ -216,7 +216,7 @@ kubectl get pvc -n kafka-cluster # 同时查看持久卷声明的状态
     kafka-topics.sh \
     --create \
     --bootstrap-server kafka-cluster-controller-0.kafka-cluster-controller-headless.kafka-cluster.svc.cluster.local:9092 \
-    --topic lbs \
+    --topic test \
     --partitions 6 \
     --replication-factor 3
     ```
