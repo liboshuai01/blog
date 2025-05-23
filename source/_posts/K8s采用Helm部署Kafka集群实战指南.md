@@ -280,7 +280,7 @@ kubectl get pods -n kafka-cluster -w
     打开一个终端执行 `kubectl exec ...` 进入客户端 Pod 后，运行：
     ```shell
     kafka-console-producer.sh \
-        --bootstrap-server kafka-cluster.kafka-cluster.svc.cluster.local:9092 \
+        --bootstrap-server kafka-cluster-controller-0.kafka-cluster-controller-headless.kafka-cluster.svc.cluster.local:9092 \
         --topic test
     ```
     然后输入一些消息，例如：
@@ -292,7 +292,7 @@ kubectl get pods -n kafka-cluster -w
     再打开一个新的终端，同样执行 `kubectl exec ...` 进入同一个客户端 Pod 后，运行：
     ```shell
     kafka-console-consumer.sh \
-        --bootstrap-server kafka-cluster.kafka-cluster.svc.cluster.local:9092 \
+        --bootstrap-server kafka-cluster-controller-0.kafka-cluster-controller-headless.kafka-cluster.svc.cluster.local:9092 \
         --topic test \
         --from-beginning
     ```
