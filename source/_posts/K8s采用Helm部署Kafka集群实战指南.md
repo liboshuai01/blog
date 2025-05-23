@@ -75,19 +75,18 @@ helm install kafka-cluster bitnami/kafka --version 32.2.6 \
   --set listeners.interbroker.sslClientAuth=none \
   --set listeners.external.protocol=PLAINTEXT \
   --set listeners.external.sslClientAuth=none \
-  --set controller.replicaCount=3 \ # Controller 节点数量，确保按需配置
+  --set controller.replicaCount=3 \
   --set controller.persistence.enabled=true \
   --set controller.persistence.size=16Gi \
-  --set controller.logPersistence.enabled=true \ # 启用 Controller 日志持久化
+  --set controller.logPersistence.enabled=true \
   --set controller.logPersistence.size=8Gi \
-  # 生产环境可以额外修改如下配置，启动“Dedicated Mode - 控制器和代理分离模式”
+  --set metrics.jmx.enabled=true
   # 如果需要分离的 Broker 节点 (KRaft 提供的 Dedicated Broker Mode)，请取消注释并配置以下参数
   # --set broker.replicaCount=3 \
   # --set broker.persistence.enabled=true \
   # --set broker.persistence.size=16Gi \
   # --set broker.logPersistence.enabled=true \
   # --set broker.logPersistence.size=8Gi \
-  --set metrics.jmx.enabled=true
 
 echo "Kafka cluster installation process initiated."
 echo "Use 'kubectl get pods -n kafka-cluster -w' to monitor pod status."
