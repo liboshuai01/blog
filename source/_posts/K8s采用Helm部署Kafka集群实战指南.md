@@ -209,7 +209,18 @@ kubectl get pvc -n kafka-cluster # 同时查看持久卷声明的状态
     ```shell
     kubectl exec --tty -i kafka-cluster-client --namespace kafka-cluster -- bash
     ```
-3.  **在客户端 Pod 内，启动生产者发送消息：**
+3.  **在客户端 Pod 内，创建一个测试topic：**
+    打开一个终端执行 `kubectl exec ...` 进入客户端 Pod 后，运行：
+    ```shell
+    # bootstrap-server 地址优先使用 headless service 的具体 pod 地址进行测试
+    kafka-topics.sh \
+    --create \
+    --bootstrap-server kafka-cluster-controller-0.kafka-cluster-controller-headless.kafka-cluster.svc.cluster.local:9092 \
+    --topic lbs \
+    --partitions 6 \
+    --replication-factor 3
+    ```
+4.  **在客户端 Pod 内，启动生产者发送消息：**
     打开一个终端执行 `kubectl exec ...` 进入客户端 Pod 后，运行：
     ```shell
     # bootstrap-server 地址优先使用 headless service 的具体 pod 地址进行测试
@@ -222,7 +233,7 @@ kubectl get pvc -n kafka-cluster # 同时查看持久卷声明的状态
     >Hello Kafka from Script
     >This is a test message via Helm set
     ```
-4.  **在客户端 Pod 内，启动消费者接收消息：**
+5.  **在客户端 Pod 内，启动消费者接收消息：**
     再打开一个新的终端，同样执行 `kubectl exec ...` 进入同一个客户端 Pod 后，运行：
     ```shell
     kafka-console-consumer.sh \
