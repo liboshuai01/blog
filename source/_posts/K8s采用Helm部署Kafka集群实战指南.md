@@ -149,7 +149,7 @@ Kafka can be accessed by consumers via port 9092 on the following DNS name from 
 
 Each Kafka broker can be accessed by producers via port 9092 on the following DNS name(s) from within your cluster:
 
-    kafka-cluster-controller-0.kafka-cluster-controller-headless.kafka-cluster.svc.cluster.local:9092
+    kafka-cluster.kafka-cluster.svc.cluster.local:9092
     kafka-cluster-controller-1.kafka-cluster-controller-headless.kafka-cluster.svc.cluster.local:9092
     kafka-cluster-controller-2.kafka-cluster-controller-headless.kafka-cluster.svc.cluster.local:9092
     # 如果你配置了独立的 broker 节点，这里会显示 broker 的 headless service 地址
@@ -215,7 +215,7 @@ kubectl get pvc -n kafka-cluster # 同时查看持久卷声明的状态
     # bootstrap-server 地址优先使用 headless service 的具体 pod 地址进行测试
     kafka-topics.sh \
     --create \
-    --bootstrap-server kafka-cluster-controller-0.kafka-cluster-controller-headless.kafka-cluster.svc.cluster.local:9092 \
+    --bootstrap-server kafka-cluster.kafka-cluster.svc.cluster.local:9092 \
     --topic test \
     --partitions 6 \
     --replication-factor 3
@@ -225,7 +225,7 @@ kubectl get pvc -n kafka-cluster # 同时查看持久卷声明的状态
     ```shell
     # bootstrap-server 地址优先使用 headless service 的具体 pod 地址进行测试
     kafka-console-producer.sh \
-        --bootstrap-server kafka-cluster-controller-0.kafka-cluster-controller-headless.kafka-cluster.svc.cluster.local:9092 \
+        --bootstrap-server kafka-cluster.kafka-cluster.svc.cluster.local:9092 \
         --topic test
     ```
     然后输入一些消息，例如：
@@ -237,7 +237,7 @@ kubectl get pvc -n kafka-cluster # 同时查看持久卷声明的状态
     再打开一个新的终端，同样执行 `kubectl exec ...` 进入同一个客户端 Pod 后，运行：
     ```shell
     kafka-console-consumer.sh \
-        --bootstrap-server kafka-cluster-controller-0.kafka-cluster-controller-headless.kafka-cluster.svc.cluster.local:9092 \
+        --bootstrap-server kafka-cluster.kafka-cluster.svc.cluster.local:9092 \
         --topic test \
         --from-beginning
     ```
