@@ -133,7 +133,7 @@ controller:
     storageClass: "nfs-storage" # 修复设置存储类: 为Controller节点数据指定StorageClass
     accessModes:
       - ReadWriteOnce
-    size: 8Gi # 修复设置存储大小: 每个节点的数据存储大小
+    size: 16Gi # 修复设置存储大小: 每个节点的数据存储大小
     mountPath: /bitnami/kafka
   logPersistence: # Kafka 日志持久化配置 (可选)
     enabled: false # 示例中未启用日志持久化，可根据需要开启
@@ -143,7 +143,37 @@ controller:
       - ReadWriteOnce
     size: 8Gi # 修复设置存储大小: 如果启用，日志存储大小
     mountPath: /opt/bitnami/kafka/logs
-    
+
+# 生产环境可以额外修改如下配置，启动“Dedicated Mode - 控制器和代理分离模式”（测试环境可以忽略，仅启动controller，则为“Combined Mode - 控制器和代理合并模式”）
+## @section Broker-only statefulset parameters
+##
+broker:
+  ## @param broker.replicaCount Number of Kafka broker-only nodes
+  ##
+  replicaCount: 3 # Kafka Broker 节点数量
+  # ... 其他broker配置 ...
+  persistence:
+    enabled: true
+    existingClaim: ""
+    storageClass: "nfs-storage" # 修复设置存储类
+    accessModes:
+      - ReadWriteOnce
+    size: 16Gi # 修改设置存储大小
+    annotations: {}
+    labels: {}
+    selector: {}
+    mountPath: /bitnami/kafka
+  logPersistence:
+    enabled: true
+    existingClaim: ""
+    storageClass: "nfs-storage" # 修复设置存储类
+    accessModes:
+      - ReadWriteOnce
+    size: 8Gi  # 修改设置存储大小
+    annotations: {}
+    selector: {}
+    mountPath: /opt/bitnami/kafka/logs
+  
 ## Prometheus Exporters / Metrics
 ##
 metrics:
