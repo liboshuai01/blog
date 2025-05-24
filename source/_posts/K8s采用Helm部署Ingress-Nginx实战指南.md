@@ -57,8 +57,6 @@ Helm 作为 Kubernetes 的包管理器，极大地简化了复杂应用的部署
 ```shell
 #!/usr/bin/env bash
 
-set -x # 开启命令执行追踪，方便调试
-
 # 1. 添加 Ingress-Nginx Helm 仓库并更新
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 helm repo update
@@ -142,8 +140,6 @@ kubectl label node node2 ingress=true --overwrite
 **`status.sh` 脚本内容:**
 ```shell
 #!/usr/bin/env bash
-
-set -x
 
 kubectl get all -n ingress-nginx # 获取 ingress-nginx 命名空间下的所有资源
 echo "--- Ingress Controller Pods Details ---"
@@ -351,8 +347,6 @@ curl --resolve "nginx-demo.local.show:80:<NODE_IP>" http://nginx-demo.local.show
 **`uninstall.sh` 脚本内容:**
 ```shell
 #!/usr/bin/env bash
-
-set -x
 
 helm uninstall ingress-nginx -n ingress-nginx
 
