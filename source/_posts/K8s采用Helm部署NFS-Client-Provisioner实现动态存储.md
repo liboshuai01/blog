@@ -440,8 +440,6 @@ helm uninstall nfs-subdir-external-provisioner -n kube-system
 ```shell
 #!/usr/bin/env bash
 
-set -x # 打印执行的命令
-
 # 使用 Helm 卸载 nfs-subdir-external-provisioner
 # 假设 release 名称为 nfs-subdir-external-provisioner (与 install.sh 中使用的名称一致)
 # 且位于 kube-system 命名空间
