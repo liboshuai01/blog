@@ -78,8 +78,7 @@ helm install ingress-nginx ingress-nginx/ingress-nginx --version 4.12.2 \
   --set-string controller.nodeSelector.ingress="true" \
   --set controller.kind=DaemonSet \
   --set controller.service.enabled=true \
-  --set controller.service.type=NodePort \
-  --set-string controller.extraArgs.update-status="false" # 解决 'ne' comparison error
+  --set controller.service.type=NodePort
 
 # 4. 为指定节点打上标签，以便 Ingress Controller Pod 调度到这些节点
 kubectl label node master ingress=true --overwrite # 如果 master 节点也作为 ingress 节点
@@ -200,7 +199,7 @@ Ingress 资源主要处理 HTTP/HTTPS，但 Ingress-Nginx Controller 也可以�
 # 示例：暴露 MySQL (TCP 3306) 和 DNS (UDP 53)
 helm upgrade ingress-nginx ingress-nginx/ingress-nginx --version 4.12.2 \
   -n ingress-nginx \
-  --reuse-values \ # 重用上次安装时的值
+  --reuse-values \
   --set-string controller.tcp."3306"="default/mysql-service:3306" \
   --set-string controller.udp."53"="kube-system/kube-dns:53"
 ```
