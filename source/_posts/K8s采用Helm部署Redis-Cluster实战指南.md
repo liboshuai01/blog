@@ -59,23 +59,14 @@ date: 2025-05-09 13:59:31
 ```shell
 #!/usr/bin/env bash
 
-# 启用命令追踪，方便调试
-set -x
-
 # --- 可配置变量 ---
 HELM_RELEASE_NAME="redis-cluster"
 NAMESPACE="redis-cluster"
 CHART_VERSION="12.0.4" # Bitnami Redis Cluster Chart 版本，请按需选择
 STORAGE_CLASS="nfs-storage" # 替换为您的 StorageClass 名称
-REDIS_PASSWORD="YOUR_STRONG_PASSWORD_HERE" # 替换为您的强密码
+REDIS_PASSWORD="YOUR_PASSWORD" # 替换为您的强密码
 METRICS_ENABLED="true"
 # ------------------
-
-# 检查 REDIS_PASSWORD 是否已修改
-if [ "$REDIS_PASSWORD" == "YOUR_STRONG_PASSWORD_HERE" ]; then
-  echo "错误：请在脚本中设置一个安全的 REDIS_PASSWORD！"
-  exit 1
-fi
 
 # 添加 Bitnami Helm 仓库 (如果已添加，此步骤会提示已存在)
 helm repo add bitnami https://charts.bitnami.com/bitnami
@@ -102,8 +93,6 @@ echo "Redis Cluster 安装命令已执行。请使用 status-redis-cluster.sh �
 ```shell
 #!/usr/bin/env bash
 
-set -x
-
 NAMESPACE="redis-cluster" # 与安装脚本中的 NAMESPACE 一致
 
 echo "--- Helm Release 状态 ---"
@@ -120,8 +109,6 @@ kubectl get pods -n "$NAMESPACE" -l app.kubernetes.io/name=redis-cluster -w
 **`uninstall-redis-cluster.sh`**
 ```shell
 #!/usr/bin/env bash
-
-set -x
 
 HELM_RELEASE_NAME="redis-cluster"
 NAMESPACE="redis-cluster" # 与安装脚本中的 NAMESPACE 一致
