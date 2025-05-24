@@ -57,8 +57,6 @@ nfs-storage (default)   cluster.local/nfs-subdir-external-provisioner   Delete  
 ```shell
 #!/usr/bin/env bash
 
-set -x # 开启调试模式，打印执行的命令
-
 # 添加 Bitnami Helm 仓库并更新
 helm repo add bitnami https://charts.bitnami.com/bitnami
 helm repo update
@@ -213,8 +211,6 @@ WARNING: There are "resources" sections in the chart not set. Using "resourcesPr
 ```shell
 #!/usr/bin/env bash
 
-set -x
-
 # 使用 install.sh 中定义的变量 (如果 status.sh 与 install.sh 在同一目录或已 source install.sh)
 # 如果独立运行，请直接替换变量或在此处定义它们
 KAFKA_NAMESPACE="kafka-cluster"
@@ -295,8 +291,6 @@ kubectl logs -n ${PROM_STACK_NAMESPACE} -l app.kubernetes.io/name=prometheus-ope
 **`uninstall.sh` 脚本内容：**
 ```shell
 #!/usr/bin/env bash
-
-set -x
 
 # --- 配置变量 (与 install.sh 保持一致) ---
 KAFKA_RELEASE_NAME="kafka-cluster"

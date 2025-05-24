@@ -211,8 +211,6 @@ kubectl get storageclass
 ```shell
 #!/usr/bin/env bash
 
-set -x # 打印执行的命令
-
 # 添加 nfs-subdir-external-provisioner 的 Helm 仓库
 helm repo add nfs-subdir-external-provisioner https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner/
 # 更新本地 Helm 仓库列表
@@ -256,8 +254,6 @@ local-path             rancher.io/local-path                                    
 
 ```shell
 #!/usr/bin/env bash
-
-set -x # 打印执行的命令
 
 # 获取 StorageClass 列表并筛选出 nfs-storage
 kubectl get storageclass | grep nfs-storage
